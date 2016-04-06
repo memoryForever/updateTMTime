@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1609E26448CB1B99AD7EA911 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F3D15CC12FEB04495D82DF /* libPods.a */; };
 		493F436D1CAF952500CB4550 /* TQWDouBanMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F436C1CAF952500CB4550 /* TQWDouBanMovie.m */; };
+		494D20AD1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D20AC1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m */; };
 		496789911CAF8808002CACE8 /* NSString+regular.m in Sources */ = {isa = PBXBuildFile; fileRef = 496789901CAF8808002CACE8 /* NSString+regular.m */; };
 		49BF9F231CAFA26A0066997F /* TQWDouBanInTheaters.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BF9F221CAFA26A0066997F /* TQWDouBanInTheaters.m */; };
 		49BF9F261CAFB82E0066997F /* TQWDouBanSeacrchMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 49BF9F251CAFB82E0066997F /* TQWDouBanSeacrchMovie.m */; };
@@ -44,6 +45,8 @@
 		233F5FA08ADBEB49168DB339 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		493F436B1CAF952500CB4550 /* TQWDouBanMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWDouBanMovie.h; sourceTree = "<group>"; };
 		493F436C1CAF952500CB4550 /* TQWDouBanMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWDouBanMovie.m; sourceTree = "<group>"; };
+		494D20AB1CB574CE00E127AD /* NSObject+UseMasterClassMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+UseMasterClassMethod.h"; sourceTree = "<group>"; };
+		494D20AC1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+UseMasterClassMethod.m"; sourceTree = "<group>"; };
 		4967898F1CAF8808002CACE8 /* NSString+regular.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+regular.h"; sourceTree = "<group>"; };
 		496789901CAF8808002CACE8 /* NSString+regular.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+regular.m"; sourceTree = "<group>"; };
 		49BF9F211CAFA26A0066997F /* TQWDouBanInTheaters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWDouBanInTheaters.h; sourceTree = "<group>"; };
@@ -321,6 +324,8 @@
 				49BF9F851CB181F80066997F /* UIImageView+LoadImage.m */,
 				49BF9FAA1CB190E40066997F /* UIImage+getNetworkImage.h */,
 				49BF9FAB1CB190E40066997F /* UIImage+getNetworkImage.m */,
+				494D20AB1CB574CE00E127AD /* NSObject+UseMasterClassMethod.h */,
+				494D20AC1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -500,6 +505,7 @@
 				49BF9F661CAFF4410066997F /* DPRequest.m in Sources */,
 				49BF9F6C1CB01CF00066997F /* TQWFindBussinessRespond.m in Sources */,
 				49BF9F751CB0A2FE0066997F /* TQWCities.m in Sources */,
+				494D20AD1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m in Sources */,
 				49BF9FBE1CB29AD50066997F /* TQWInbriefTableViewCell.m in Sources */,
 				49E8CE581CAD4B4A001610E1 /* main.m in Sources */,
 				49E8CE931CAEC9A9001610E1 /* TQWGetData.m in Sources */,

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "B79C9EFE044809C1C7B2FEB42DAEBCA9B35BD786",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "B79C9EFE044809C1C7B2FEB42DAEBCA9B35BD786" : 0,
+    "EB393EA6611509234A95C2A4BA4EFEEB349DCF78" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "932C0BDF-2DA3-4D07-9D63-E5255B7E11CC",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "B79C9EFE044809C1C7B2FEB42DAEBCA9B35BD786" : "updateTMTime\/",
+    "EB393EA6611509234A95C2A4BA4EFEEB349DCF78" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TMTime",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TMTime.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:memoryForever\/updateTMTime.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "B79C9EFE044809C1C7B2FEB42DAEBCA9B35BD786"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:memoryForever\/updateTMTime.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EB393EA6611509234A95C2A4BA4EFEEB349DCF78"
+    }
+  ]
+}
