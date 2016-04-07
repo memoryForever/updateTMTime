@@ -21,4 +21,5 @@
 #import <NSObject+YYModel.h>
 #import "NSObject+Parser.h"
 #import "UIImageView+LoadImage.h"
+#import "constant.h"
 #endif /* PrefixHeader_pch */

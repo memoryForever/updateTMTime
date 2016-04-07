@@ -12,12 +12,12 @@
 #define kQIYUANTOKEN @"1.0_fNyNmqVjWjvSyHmHekeU115de535"
 /** 豆瓣电影相关API **/
 
-#define kDOUBANMOVI_SUBJECT @"http://api.douban.com/v2/movie/subject/"
+#define kDOUBANMOVI_SUBJECT    @"http://api.douban.com/v2/movie/subject/"
 #define kDOUBANMOVI_InTheaters @"http://api.douban.com/v2/movie/in_theaters"
-#define kDOUBANMOVI_Searsh @"http://api.douban.com/v2/movie/search"
-#define kDOUBANMOVI_250 @"http://api.douban.com/v2/movie/top250"
+#define kDOUBANMOVI_Searsh     @"http://api.douban.com/v2/movie/search"
+#define kDOUBANMOVI_250        @"http://api.douban.com/v2/movie/top250"
 #define kDOUBANMOVI_ComingSoon @"http://api.douban.com/v2/movie/coming_soon"
-#define kDOUBANMOVI_USBox @"http://api.douban.com/v2/movie/us_box"
+#define kDOUBANMOVI_USBox      @"http://api.douban.com/v2/movie/us_box"
 
 /** 点评网 **/
 #define kDPAppKey                   @"4123794720"
@@ -31,7 +31,7 @@
 
 /** 定义放回的数据类型 **/
 #define kRespondDataTypeJSON @"json"
-#define kRespondDataTypeXML @"xml"
+#define kRespondDataTypeXML  @"xml"
 
 
 /** plist文件名 **/
@@ -46,6 +46,8 @@
    #define kScreenH     [UIScreen mainScreen].bounds.size.height
 #endif
 
+/** 保存当前城市KEY **/
+#define currentCityNameKey @"currentCityNameKey"
 
 
 #endif /* constant_h */

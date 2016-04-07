@@ -143,7 +143,7 @@
     }];
 }
 
-+ (void)getCitiesListCompleteHander:(void (^)(TQWCities *, NSError *))completeHandler{
++ (void)getCitiesListCompleteHander:(void (^)(NSArray<TQWCities *>*, NSError *))completeHandler{
     [self read:kPListCityGroups completeHandler:^(id respondObject, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             completeHandler([TQWCities parserJson:respondObject],error);

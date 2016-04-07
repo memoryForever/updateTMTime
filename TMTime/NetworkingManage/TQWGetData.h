@@ -87,5 +87,5 @@
  *
  *  @param completeHandler 获取成功后调用
  */
-+ (void)getCitiesListCompleteHander:(void(^)(TQWCities *cities ,NSError *error)) completeHandler;
++ (void)getCitiesListCompleteHander:(void(^)(NSArray<TQWCities *>*cities ,NSError *error)) completeHandler;
 @end

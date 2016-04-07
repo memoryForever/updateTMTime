@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		1609E26448CB1B99AD7EA911 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F3D15CC12FEB04495D82DF /* libPods.a */; };
+		2A542DFE1CB62F23004D1597 /* TQWCityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A542DFD1CB62F23004D1597 /* TQWCityListViewController.m */; };
+		2A542E011CB62F72004D1597 /* TQWCityListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A542E001CB62F72004D1597 /* TQWCityListViewModel.m */; };
+		2A542E031CB674F7004D1597 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A542E021CB674F7004D1597 /* MapKit.framework */; };
+		2A542E061CB676DB004D1597 /* AppDelegate+Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A542E051CB676DB004D1597 /* AppDelegate+Location.m */; };
 		493F436D1CAF952500CB4550 /* TQWDouBanMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F436C1CAF952500CB4550 /* TQWDouBanMovie.m */; };
 		494D20AD1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D20AC1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m */; };
 		496789911CAF8808002CACE8 /* NSString+regular.m in Sources */ = {isa = PBXBuildFile; fileRef = 496789901CAF8808002CACE8 /* NSString+regular.m */; };
@@ -43,6 +47,13 @@
 
 /* Begin PBXFileReference section */
 		233F5FA08ADBEB49168DB339 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2A542DFC1CB62F23004D1597 /* TQWCityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWCityListViewController.h; sourceTree = "<group>"; };
+		2A542DFD1CB62F23004D1597 /* TQWCityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWCityListViewController.m; sourceTree = "<group>"; };
+		2A542DFF1CB62F72004D1597 /* TQWCityListViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWCityListViewModel.h; sourceTree = "<group>"; };
+		2A542E001CB62F72004D1597 /* TQWCityListViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWCityListViewModel.m; sourceTree = "<group>"; };
+		2A542E021CB674F7004D1597 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2A542E041CB676DB004D1597 /* AppDelegate+Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+Location.h"; sourceTree = "<group>"; };
+		2A542E051CB676DB004D1597 /* AppDelegate+Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+Location.m"; sourceTree = "<group>"; };
 		493F436B1CAF952500CB4550 /* TQWDouBanMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWDouBanMovie.h; sourceTree = "<group>"; };
 		493F436C1CAF952500CB4550 /* TQWDouBanMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWDouBanMovie.m; sourceTree = "<group>"; };
 		494D20AB1CB574CE00E127AD /* NSObject+UseMasterClassMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+UseMasterClassMethod.h"; sourceTree = "<group>"; };
@@ -115,6 +126,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2A542E031CB674F7004D1597 /* MapKit.framework in Frameworks */,
 				1609E26448CB1B99AD7EA911 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -122,6 +134,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A542DF81CB62E16004D1597 /* 城市 */ = {
+			isa = PBXGroup;
+			children = (
+				2A542DFC1CB62F23004D1597 /* TQWCityListViewController.h */,
+				2A542DFD1CB62F23004D1597 /* TQWCityListViewController.m */,
+			);
+			name = "城市";
+			sourceTree = "<group>";
+		};
 		49BF9F701CB0A2180066997F /* plist */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +268,8 @@
 			children = (
 				49BF9FB91CB283370066997F /* TQWMainViewModel.h */,
 				49BF9FBA1CB283370066997F /* TQWMainViewModel.m */,
+				2A542DFF1CB62F72004D1597 /* TQWCityListViewModel.h */,
+				2A542E001CB62F72004D1597 /* TQWCityListViewModel.m */,
 			);
 			name = ModelView;
 			path = TMTime/ModelView;
@@ -294,6 +317,7 @@
 		49E8CE731CAD5236001610E1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				2A542DF81CB62E16004D1597 /* 城市 */,
 				49BF9F801CB1709C0066997F /* 经典 */,
 				49BF9F7F1CB1708E0066997F /* 影讯 */,
 				49BF9F7E1CB1707E0066997F /* 影音 */,
@@ -326,6 +350,8 @@
 				49BF9FAB1CB190E40066997F /* UIImage+getNetworkImage.m */,
 				494D20AB1CB574CE00E127AD /* NSObject+UseMasterClassMethod.h */,
 				494D20AC1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m */,
+				2A542E041CB676DB004D1597 /* AppDelegate+Location.h */,
+				2A542E051CB676DB004D1597 /* AppDelegate+Location.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -358,6 +384,7 @@
 		FC0F37677CE030B86EC3A2F4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2A542E021CB674F7004D1597 /* MapKit.framework */,
 				63F3D15CC12FEB04495D82DF /* libPods.a */,
 			);
 			name = Frameworks;
@@ -490,6 +517,8 @@
 				49BF9F781CB16E100066997F /* TQWMovieCollectionViewCell.m in Sources */,
 				49E8CE8D1CAEACE0001610E1 /* UIScrollView+Refersh.m in Sources */,
 				493F436D1CAF952500CB4550 /* TQWDouBanMovie.m in Sources */,
+				2A542E061CB676DB004D1597 /* AppDelegate+Location.m in Sources */,
+				2A542DFE1CB62F23004D1597 /* TQWCityListViewController.m in Sources */,
 				49BF9FB51CB280190066997F /* ViewController.m in Sources */,
 				49E8CE871CAE8AE0001610E1 /* NSObject+NetWoking.m in Sources */,
 				496789911CAF8808002CACE8 /* NSString+regular.m in Sources */,
@@ -507,6 +536,7 @@
 				49BF9F751CB0A2FE0066997F /* TQWCities.m in Sources */,
 				494D20AD1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m in Sources */,
 				49BF9FBE1CB29AD50066997F /* TQWInbriefTableViewCell.m in Sources */,
+				2A542E011CB62F72004D1597 /* TQWCityListViewModel.m in Sources */,
 				49E8CE581CAD4B4A001610E1 /* main.m in Sources */,
 				49E8CE931CAEC9A9001610E1 /* TQWGetData.m in Sources */,
 				49BF9F691CB0041C0066997F /* TQWDBRequestFindBussiness.m in Sources */,

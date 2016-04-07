@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TQWCities.h"
 
 @interface TQWCities : NSObject
 @property (nonatomic,copy) NSString *title;

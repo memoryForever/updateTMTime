@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "AppDelegate+System.h"
 #import "ViewController.h"
+#import "TQWGetData.h"
 
 
 @interface AppDelegate ()
@@ -16,9 +17,8 @@
 @end
 
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+
     
     return YES;
 }
