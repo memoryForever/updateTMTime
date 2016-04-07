@@ -47,7 +47,10 @@
 #endif
 
 /** 保存当前城市KEY **/
-#define currentCityNameKey @"currentCityNameKey"
-
+#define kCurrentCityNameKey   @"currentCityNameKey"
+#define kCurrentCityNameValue [[NSUserDefaults standardUserDefaults] objectForKey:kCurrentCityNameKey]
+#define kSaveCurrentCityName(__cityName__)  do{[[NSUserDefaults standardUserDefaults] setObject:__cityName__ forKey:kCurrentCityNameKey];\
+[[NSUserDefaults standardUserDefaults] synchronize];}while(0)
+#define kCurrentCityChangeNotification @"currentCityChange"
 
 #endif /* constant_h */

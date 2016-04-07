@@ -10,6 +10,7 @@
 #import "AppDelegate+System.h"
 #import "ViewController.h"
 #import "TQWGetData.h"
+#import "AppDelegate+Location.h"
 
 
 @interface AppDelegate ()
@@ -18,7 +19,7 @@
 
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
+    [self confirmCurrentCity];
     
     return YES;
 }

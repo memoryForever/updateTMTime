@@ -10,14 +10,14 @@
 
 @implementation UIView (HUB)
 -(void)showSuccess:(NSString *)prompt{
-    [self hidePromptView];
+   // [self hidePromptView];
    MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self animated:YES];
     hub.mode = MBProgressHUDModeText;
     hub.labelText = prompt;
     [hub hide:YES afterDelay:0.5];
 }
 -(void)showWarning:(NSString *)prompt{
-    [self hidePromptView];
+   // [self hidePromptView];
     MBProgressHUD *hub = [MBProgressHUD showHUDAddedTo:self animated:YES];
     hub.mode = MBProgressHUDModeText;
     hub.labelText = prompt;
