@@ -49,6 +49,13 @@
 }
 
 #pragma mark - 实例方法
+-(instancetype)init{
+    self = [super init];
+    if (self) {
+    }
+    return self;
+}
+
 - (NSUInteger)itemNumber{
     
     return self.container.count ;
@@ -119,11 +126,17 @@
 
 #pragma  mark - 获取数据
 - (void)getMovieInTheatersCompleteHandler:(void (^)(NSError *))completeHandler{
-    [TQWGetData getInTheatersMoviesCity:@"北京" start:_currentEndPageNumber count:perpageNumber completeHandler:^(TQWDouBanInTheaters *theraters, NSError *error) {
+    [TQWGetData getInTheatersMoviesCity:kCurrentCityNameValue start:_currentEndPageNumber count:perpageNumber completeHandler:^(TQWDouBanInTheaters *theraters, NSError *error) {
         [self.container addObjectsFromArray:theraters.subjects];
         completeHandler(error);
         _updataCompleteHander = completeHandler;
     }];
+}
+
+- (void)refreshMovieInTheaters{
+    [self.container removeAllObjects];
+    _currentEndPageNumber = 0 ;
+    [self getMovieInTheatersCompleteHandler:_updataCompleteHander];
 }
 
 - (void)getMovieNewRefershType:(RefershType)type startUpdata:(void(^)())startUpdata CompleteHandler:(void (^)(NSError *))competeHander {
@@ -146,8 +159,21 @@
     }];
 }
 
+#pragma mark - selector 相关方法
+
+
+#pragma mark - 生命周期方法
+
+- (void)dealloc{
+    //移除所有监听
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+
 
 #pragma mark - 类方法
+
+
 
 
 @end

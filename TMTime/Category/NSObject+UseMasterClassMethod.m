@@ -7,8 +7,8 @@
 //
 
 #import "NSObject+UseMasterClassMethod.h"
-#import <objc/objc-runtime.h>
-
+//#import <objc/objc-runtime.h>
+#import <objc/runtime.h>
 
 @implementation NSObject (UseMasterClassMethod)
 - (void)masterClassMethodName:(NSString*)name parameter:(id)param{

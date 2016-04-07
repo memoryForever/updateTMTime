@@ -40,12 +40,16 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 /** 正在热映电影集合视图属性 **/
 @property (weak, nonatomic) IBOutlet UICollectionView *MovieCollectionView;
 
+/** 城市切换按钮 **/
+
+@property (weak, nonatomic) IBOutlet UIButton *cityChangeButton;
+
 /** 电影消息的视图属性 **/
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 /** ViewModel属性 **/
-@property (nonatomic,strong)TQWMainViewModel *mainViewMain;
+@property (nonatomic,strong)TQWMainViewModel *mainViewModel;
 
 
 /** 计算属性 **/
@@ -56,11 +60,11 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 
 #pragma mark - 懒加载 
 -(TQWMainViewModel *)mainViewMain{
-    if (!_mainViewMain) {
-        _mainViewMain = [[TQWMainViewModel alloc]init];
+    if (!_mainViewModel) {
+        _mainViewModel = [[TQWMainViewModel alloc]init];
     }
     
-    return  _mainViewMain   ;
+    return  _mainViewModel   ;
 }
 -(CGFloat)lineSpacing{
     return (kScreenW - itemWidth * 3) / 3 ;
@@ -68,15 +72,15 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 
 #pragma mark - collectionView delegate
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return [self.mainViewMain itemNumber];
+    return [self.mainViewModel itemNumber];
    
 }
 - (UICollectionViewCell*)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     TQWMovieCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:InTheaterReusableCellIndentifier forIndexPath:indexPath];
     NSUInteger row = indexPath.row;
-    cell.movieNameLabel.text = [self.mainViewMain movieTitleWithIndex:row];
-    cell.movieRatingLabel.text = [self.mainViewMain movieRatingWithIndex:row];
-    [cell.moviePoster loadImageWithURL:[self.mainViewMain  moviePosterWithIndex:row]];
+    cell.movieNameLabel.text = [self.mainViewModel movieTitleWithIndex:row];
+    cell.movieRatingLabel.text = [self.mainViewModel movieRatingWithIndex:row];
+    [cell.moviePoster loadImageWithURL:[self.mainViewModel  moviePosterWithIndex:row]];
     return cell;
 }
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
@@ -124,6 +128,13 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
 }
+#pragma mark - selector 类方法事件的实现
+- (void)changeCityButtonTitle{
+    [self.cityChangeButton setTitle:kCurrentCityNameValue forState:UIControlStateNormal];
+    //刷新当前城市正在热映的电影
+    [self.mainViewModel refreshMovieInTheaters];
+}
+
 
 #pragma mark - 生命周期方法
 
@@ -158,11 +169,20 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
            kAppearTabbar;
        }];
     }];
+    [self.cityChangeButton setTitle:kCurrentCityNameValue forState:UIControlStateNormal];
+    //监听城市变化
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCityButtonTitle) name:kCurrentCityChangeNotification object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
    
 }
+
+-(void)dealloc{
+    //移除所有监听
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end

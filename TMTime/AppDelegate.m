@@ -19,11 +19,16 @@
 
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [self confirmCurrentCity];
-    
+    [self setupCurrentCity];
+    [self setupGolbalNavigation];
     return YES;
 }
-
+- (void)setupGolbalNavigation{
+    //间接设在状态栏为白色
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlackOpaque];
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"menu_top_bg7"] forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+}
 
 
 @end

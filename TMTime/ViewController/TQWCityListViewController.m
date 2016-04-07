@@ -8,6 +8,8 @@
 
 #import "TQWCityListViewController.h"
 #import "TQWCityListViewModel.h"
+#import "NSObject+Location.h"
+
 #define kCityListTableViewCellReuseIdentified @"cityListCell"
 
 @interface TQWCityListCell : UITableViewCell
@@ -25,6 +27,13 @@
 @end
 
 @interface TQWCityListViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+/** 顶部view属性 **/
+@property (weak, nonatomic) IBOutlet UIView *topView;
+/** 显示选中的城市,或当前城市 **/
+@property (weak, nonatomic) IBOutlet UILabel *showCurrentCity;
+
+
 //tableView属性
 @property (weak, nonatomic) IBOutlet UITableView *cityListtableView;
 //viewModel属性
@@ -46,6 +55,13 @@
 }
 
 #pragma mark - 控制器响应方法
+- (IBAction)locationButton:(id)sender {
+    [self confirmCurrentCity];
+}
+- (void)getCurrentCityNameCompleteHandler:(NSString *)cityName{
+    self.showCurrentCity.text = cityName;
+    [self.cityListtableView reloadData];
+}
 
 - (IBAction)back:(id)sender {
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
@@ -66,6 +82,11 @@
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TQWCityListCell *cell = [tableView dequeueReusableCellWithIdentifier:kCityListTableViewCellReuseIdentified forIndexPath:indexPath];
     cell.textLabel.text = [self.cityListViewModel cityNameWithIndexPath:indexPath];
+    if ([self.showCurrentCity.text isEqualToString:[self.cityListViewModel cityNameWithIndexPath:indexPath]]) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark ;
+    }else{
+       cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell ;
 }
 
@@ -79,8 +100,8 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    TQWCityListCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark ;
+    self.showCurrentCity.text = [self.cityListViewModel cityNameWithIndexPath:indexPath];
+    [tableView reloadData];
 }
 #pragma mark - 生命周期方法
 - (void)viewDidLoad {
@@ -89,8 +110,17 @@
     [self.cityListViewModel getCityListCompleteHandler:^(NSError *error) {
         [self.cityListtableView reloadData];
     }];
+    self.showCurrentCity.text = kCurrentCityNameValue;
     
 }
+
+- (void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:YES];
+    kSaveCurrentCityName(self.showCurrentCity.text);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kCurrentCityChangeNotification object:self];
+}
+//设置导航栏的状态
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

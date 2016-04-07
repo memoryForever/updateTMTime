@@ -34,4 +34,5 @@ typedef NS_ENUM(NSUInteger ,RefershType) {
 /** model 相关的属性 **/
 - (void)getMovieInTheatersCompleteHandler:(void(^)(NSError *error))completeHandler;
 - (void)getMovieNewRefershType:(RefershType)type startUpdata:(void(^)())startUpdata CompleteHandler:(void(^)(NSError *error))competeHander;
+- (void)refreshMovieInTheaters;
 @end

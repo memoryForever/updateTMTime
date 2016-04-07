@@ -10,9 +10,9 @@
 
 
 
-@interface AppDelegate (Location)<CLLocationManagerDelegate>
-@property(nonatomic,strong) CLLocationManager *locationManger ;
+@interface AppDelegate (Location) //<CLLocationManagerDelegate>
+//@property(nonatomic,strong) CLLocationManager *locationManger ;
 /** 确认当城市 **/
-- (void)confirmCurrentCity;
+- (void)setupCurrentCity;
 
 @end
