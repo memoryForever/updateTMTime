@@ -10,6 +10,8 @@
 @protocol selfDelegateProtocol  <NSObject>
 @optional
 - (void) getCurrentCityNameCompleteHandler:(NSString *)cityName;
+/** 获取当前坐标 **/
+- (void)getCurrentCoordinate2D:(CLLocationCoordinate2D)coordinate;
 @end
 
 @interface NSObject (Location)<CLLocationManagerDelegate,selfDelegateProtocol>

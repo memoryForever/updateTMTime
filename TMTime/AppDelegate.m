@@ -21,6 +21,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setupCurrentCity];
     [self setupGolbalNavigation];
+    //设置默认城市
+    [self defaultCityName];
     return YES;
 }
 - (void)setupGolbalNavigation{
@@ -30,5 +32,10 @@
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
 
+- (void)defaultCityName{
+    if (!kCurrentCityNameValue) {
+        kSaveCurrentCityName(@"北京");
+    }
+}
 
 @end
