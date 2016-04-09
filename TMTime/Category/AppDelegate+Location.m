@@ -7,9 +7,7 @@
 //
 
 #import "AppDelegate+Location.h"
-#import <MapKit/MapKit.h>
-#import <objc/runtime.h>
-#import "NSObject+Location.h"
+#import "TQWLocationManager.h"
 
 @implementation AppDelegate (Location)
 ////利用运行时给分类添加关联属性
@@ -29,7 +27,11 @@
 //        [manage requestWhenInUseAuthorization];
 //    }
 //    [manage startUpdatingLocation];
-    [self confirmCurrentCity];
+    [TQWLocationManager LocationManagerDidGetCurrentCityNameCompleteHandler:^(NSString *cityName, NSError *error) {
+            [self getCurrentCityNameCompleteHandler:cityName];
+   
+    }];
+    
 }
 - (void)getCurrentCityNameCompleteHandler:(NSString *)cityName{
             if (!kCurrentCityNameValue) {

@@ -74,6 +74,7 @@ typedef NS_ENUM(NSInteger ,SegmentedSelectedViewController){
 - (TQWPerimeterZoneShopViewModel *)perimeterZoneViewModel{
     if (!_perimeterZoneViewModel) {
         _perimeterZoneViewModel = [[TQWPerimeterZoneShopViewModel alloc]init];
+       
     }
     return _perimeterZoneViewModel;
 }
@@ -87,21 +88,20 @@ typedef NS_ENUM(NSInteger ,SegmentedSelectedViewController){
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     TQWShopTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:kShopTableViewCellReuseIdentified forIndexPath:indexPath];
     NSUInteger index = indexPath.row;
-    NSLog(@"name : %@",[self.perimeterZoneViewModel bussinessNameWithIndex:index]);
     cell.shopNameLabel.text = [self.perimeterZoneViewModel bussinessNameWithIndex:index];
     [cell.shopImageView loadImageWithURL:[self.perimeterZoneViewModel bussinessImageURLStringWithIndex:index]];
     cell.discountLable.text = [self.perimeterZoneViewModel bussinessDisCountWithIndex:index];
     cell.distanceLabel.text = [self.perimeterZoneViewModel bussinessDistanceWithIndex:index];
     
-    NSAttributedString *RMBlogo = [[NSAttributedString alloc]initWithString:@"¥"
+    NSAttributedString *RMBlogo = [[NSAttributedString alloc]initWithString:@"¥ "
                                                                 attributes:@{
-                                                       NSFontAttributeName:[UIFont systemFontOfSize:13],
-                                                       NSForegroundColorAttributeName:[UIColor yellowColor],
+                                                       NSFontAttributeName:[UIFont boldSystemFontOfSize:13],
+                                            NSForegroundColorAttributeName:kRGBAColor(226, 198, 73, 1),
                                                                             }];
     NSAttributedString *priceString = [[NSAttributedString alloc]initWithString:[self.perimeterZoneViewModel bussinessPriceWthIndex:index]
                     attributes:@{
            NSFontAttributeName:[UIFont systemFontOfSize:20],
-           NSForegroundColorAttributeName:[UIColor whiteColor],
+NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
                                                     }];
     NSMutableAttributedString *mAttString = [[NSMutableAttributedString alloc]initWithAttributedString:RMBlogo];
     [mAttString appendAttributedString:priceString];
@@ -113,15 +113,31 @@ typedef NS_ENUM(NSInteger ,SegmentedSelectedViewController){
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view bringSubviewToFront:_backButton];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityChange) name:kCurrentCityChangeNotification object:nil];
+    [self.currentCityButton setTitle:kCurrentCityNameValue];
     [self.tableView setHidden:YES];
     [self.perimeterZoneViewModel getBussinessInfoCompleteHandler:^(NSError *error) {
         if (error) {
-            //错误处理
+            if (error.code == kNotMoreData) {
+                [self.view showSuccess:@"没有更多数据载入了"];
+            }
+        }else{
+           [self.tableView reloadData];
         }
-        [self.tableView reloadData];
+        [self.tableView endedFooterRefersh];
+        [self.tableView endedHeadRefersh];
     }];
-    
+    [self.tableView addHeadRefershAnimation:^{
+        [self.perimeterZoneViewModel refershDataAndRefersh:RefershTypePullUp];
+    }];
+    [self.tableView addFooterRefersh:^{
+        [self.perimeterZoneViewModel refershDataAndRefersh:RefershTypeLoadModeData];
+    }];
  
+}
+
+- (void)dealloc{
+    kRemoveAllObserver;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,7 +145,7 @@ typedef NS_ENUM(NSInteger ,SegmentedSelectedViewController){
 }
 #pragma mark - 事件响应方法
 - (IBAction)relocationButtonAction:(id)sender {
-    
+    [self.perimeterZoneViewModel refershDataAndRefersh:RefershTypeRelocation];
 }
 
 - (IBAction)viewChangedsegmentedAction:(UISegmentedControl*)sender {
@@ -139,6 +155,13 @@ typedef NS_ENUM(NSInteger ,SegmentedSelectedViewController){
 }
 
 - (IBAction)back:(UIButton *)sender {
-    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (void)cityChange{
+   [self.currentCityButton setTitle:kCurrentCityNameValue];
+    [self.perimeterZoneViewModel refershDataAndRefersh:RefershTypeCityChange];
+}
+
+#pragma mark - 
 @end

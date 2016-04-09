@@ -38,7 +38,9 @@
     }
     
     CLLocation *location = [locations firstObject];
-    [self getCurrentCoordinate2D:location.coordinate];
+    if ([self respondsToSelector:@selector(getCurrentCoordinate2D:)]) {
+      [self getCurrentCoordinate2D:location.coordinate];
+    }
     [[[CLGeocoder alloc]init] reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
         if (error) {
             NSLog(@"地址反编码错误:%@",error);

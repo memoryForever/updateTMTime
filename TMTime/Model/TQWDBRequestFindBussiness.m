@@ -28,7 +28,7 @@
 -(void)setLatitude:(CGFloat )latitude{
     _latitude = latitude;
     if (self.param[@"city"]) {
-        return;
+        [self.param removeObjectForKey:@"city"];
     }
     [self.param setObject:@(latitude) forKey:@"latitude"];
 }
@@ -36,7 +36,7 @@
 -(void)setLongitude:(CGFloat)longitude{
     _longitude = longitude;
     if (self.param[@"city"]) {
-        return;
+        [self.param removeObjectForKey:@"city"];
     }
     [self.param setObject:@(longitude) forKey:@"longitude"];
 }
@@ -54,7 +54,11 @@
 -(void)setCity:(NSString *)city{
     _city = city;
     if (self.param[@"latitude"]) {
-        return ;
+        [self.param removeObjectForKey:@"latitude"];
+        [self.param removeObjectForKey:@"longitude"];
+        [self.param removeObjectForKey:@"radius"];
+        [self.param removeObjectForKey:@"offset_type"];
+        [self.param removeObjectForKey:@"out_offset_type"];
     }
     [self.param setObject:_city forKey:@"city"];
 }

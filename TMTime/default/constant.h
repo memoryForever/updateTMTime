@@ -53,4 +53,13 @@
 [[NSUserDefaults standardUserDefaults] synchronize];}while(0)
 #define kCurrentCityChangeNotification @"currentCityChange"
 
+/** 设置RGB颜色 **/
+#define kRGBAColor(R,G,B,A) [UIColor colorWithRed:R/225.0 green:G/255.0 blue:B/255.0 alpha:A]
+
+/** 移除当前对象所有观察者 **/
+#define kRemoveAllObserver    [[NSNotificationCenter defaultCenter] removeObserver:self]
+/** 没有更多数据加载 **/
+#define kNotMoreData -10000
+/** 定位服务未开启 **/
+#define kNotLocatinServer -10001
 #endif /* constant_h */

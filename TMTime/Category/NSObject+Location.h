@@ -7,6 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+
+/**
+ *  准备废弃该分类 ,改用 LocationV2 代替
+ */
 @protocol selfDelegateProtocol  <NSObject>
 @optional
 - (void) getCurrentCityNameCompleteHandler:(NSString *)cityName;

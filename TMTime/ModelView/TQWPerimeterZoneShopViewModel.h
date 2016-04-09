@@ -19,6 +19,17 @@ typedef NS_ENUM(NSInteger , BussinessType) {
     BussinessTypeSupermarker ,
 };
 
+typedef  NS_ENUM(NSInteger ,RefershType) {
+    //城市改变刷新
+    RefershTypeCityChange,
+    //加载更多数据,下拉刷新
+    RefershTypeLoadModeData,
+    //上拉刷新
+    RefershTypePullUp,
+    //重新定位刷新
+    RefershTypeRelocation,
+};
+
 @interface TQWPerimeterZoneShopViewModel : NSObject
 //视图属性
 //table view 属性相关
@@ -36,7 +47,10 @@ typedef NS_ENUM(NSInteger , BussinessType) {
 - (NSString *)bussinessDistanceWithIndex:(NSInteger)index;
 /** 商品预约URLStirng ,返回空,不能再线预约**/
 - (NSString *)bussinessReservationWithIndex:(NSInteger)index ;
+
 //Model 属性
 /** 获取商品信息 **/
 - (void)getBussinessInfoCompleteHandler:(void(^)(NSError *error))completeHandler;
+- (void)refershDataAndRefersh:(RefershType)type;
+
 @end

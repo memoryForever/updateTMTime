@@ -1073,6 +1073,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <animations/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoQ-kR-AO1">
+                                <rect key="frame" x="-4" y="0.0" width="61" height="30"/>
+                                <animations/>
+                                <state key="normal" title="  &lt;&lt; 返回"/>
+                                <connections>
+                                    <action selector="back:" destination="s3m-jJ-mWj" eventType="touchUpInside" id="hd1-Kj-FD4"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="121" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Mfz-YT-12l">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <animations/>
@@ -1139,7 +1147,7 @@
                                                     <rect key="frame" x="240" y="63" width="72" height="16"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -1163,7 +1171,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" red="0.072856541841417988" green="0.56709757838732933" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="discountLable" destination="9fI-vz-xQS" id="Iyy-xU-7fj"/>
                                             <outlet property="distanceLabel" destination="Szc-Uh-fQN" id="lUc-RY-UbU"/>
@@ -1179,14 +1187,6 @@
                                     <outlet property="delegate" destination="s3m-jJ-mWj" id="MHf-OY-mJk"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoQ-kR-AO1">
-                                <rect key="frame" x="-4" y="0.0" width="61" height="30"/>
-                                <animations/>
-                                <state key="normal" title="  &lt;&lt; 返回"/>
-                                <connections>
-                                    <action selector="back:" destination="s3m-jJ-mWj" eventType="touchUpInside" id="hd1-Kj-FD4"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1332,14 +1332,14 @@
                                         <rect key="frame" x="8" y="10" width="60" height="18"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" tag="100" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="北京" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7D-Q9-HSJ">
                                         <rect key="frame" x="282" y="10" width="30" height="18"/>
                                         <animations/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
