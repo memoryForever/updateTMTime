@@ -15,19 +15,22 @@
     }];
 }
 -(void)beginHeadRefersh{
+    kWeakSelf(mySelf);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mj_header beginRefreshing];
+        [mySelf.mj_header beginRefreshing];
     });
     
 }
 -(void)endedHeadRefersh{
+    kWeakSelf(mySelf);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mj_header endRefreshing];
+        [mySelf.mj_header endRefreshing];
     });
 }
 -(void)endedHeadRefersh:(void (^)())block{
+    kWeakSelf(mySelf);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mj_header endRefreshing];
+        [mySelf.mj_header endRefreshing];
         block();
     });
 }
@@ -40,18 +43,21 @@
 }
 
 -(void)beginFooterRefersh{
+    kWeakSelf(mySelf);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mj_footer beginRefreshing];
+        [mySelf.mj_footer beginRefreshing];
     });
 }
 -(void)endedFooterRefersh{
+    kWeakSelf(mySelf);
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mj_footer endRefreshing];
+        [mySelf.mj_footer endRefreshing];
     });
 }
 -(void)endedFooterRefersh:(void (^)())block{
+    kWeakSelf(mySelf);
     dispatch_sync(dispatch_get_main_queue(), ^{
-        [self.mj_footer endRefreshing];
+        [mySelf.mj_footer endRefreshing];
         block();
     });
 }

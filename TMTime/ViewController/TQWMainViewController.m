@@ -140,32 +140,33 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    kWeakSelf(mySelf);
     [self.mainViewMain getMovieInTheatersCompleteHandler:^(NSError *error) {
         if (error) {
-            [self.MovieCollectionView showFailure:@"数据载入出错,请检测网络"];
+            [mySelf.MovieCollectionView showFailure:@"数据载入出错,请检测网络"];
             return ;
         }
-        [self.MovieCollectionView reloadData];
+        [mySelf.MovieCollectionView reloadData];
     }];
     self.tableView.estimatedRowHeight = 350 ;
     self.tableView.rowHeight = UITableViewAutomaticDimension    ;
     
     [self.tableView addHeadRefershAnimation:^{
-       [self.mainViewMain getMovieNewRefershType:RefershTypeUp startUpdata:^{
+       [mySelf.mainViewMain getMovieNewRefershType:RefershTypeUp startUpdata:^{
            kHideTabbar;
        } CompleteHandler:^(NSError *error) {
-           [self.tableView endedHeadRefersh];
-           [self.tableView reloadData];
+           [mySelf.tableView endedHeadRefersh];
+           [mySelf.tableView reloadData];
            kAppearTabbar;
        }];
     }];
-    [self.tableView beginHeadRefersh];
-    [self.tableView addFooterRefersh:^{
-       [self.mainViewMain getMovieNewRefershType:RefershTypeDown startUpdata:^{
+    [mySelf.tableView beginHeadRefersh];
+    [mySelf.tableView addFooterRefersh:^{
+       [mySelf.mainViewMain getMovieNewRefershType:RefershTypeDown startUpdata:^{
            kHideTabbar;
        } CompleteHandler:^(NSError *error) {
-           [self.tableView endedFooterRefersh];
-           [self.tableView reloadData];
+           [mySelf.tableView endedFooterRefersh];
+           [mySelf.tableView reloadData];
            kAppearTabbar;
        }];
     }];

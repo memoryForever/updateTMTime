@@ -12,6 +12,8 @@
 #define kBussinessTypeHotel       @"酒店"
 #define kBussinessTypeSupermarker @"超市"
 
+@class TQWAnnotation;
+
 typedef NS_ENUM(NSInteger , BussinessType) {
     BussinessTypeFooder = 1 ,
     BussinessTypeCinema  ,
@@ -47,7 +49,10 @@ typedef  NS_ENUM(NSInteger ,RefershType) {
 - (NSString *)bussinessDistanceWithIndex:(NSInteger)index;
 /** 商品预约URLStirng ,返回空,不能再线预约**/
 - (NSString *)bussinessReservationWithIndex:(NSInteger)index ;
-
+//mapView相关
+/** 商品的2d坐标 **/
+- (CLLocationCoordinate2D)bussinessCoordiate2DWithIndex:(NSInteger)index;
+- (TQWAnnotation*)bussinessAnnotationWithIndex:(NSInteger)index;
 //Model 属性
 /** 获取商品信息 **/
 - (void)getBussinessInfoCompleteHandler:(void(^)(NSError *error))completeHandler;

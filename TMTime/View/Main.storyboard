@@ -1072,6 +1072,9 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4a4-oV-jPX">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <animations/>
+                                <connections>
+                                    <outlet property="delegate" destination="s3m-jJ-mWj" id="Crk-CE-Xw8"/>
+                                </connections>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RoQ-kR-AO1">
                                 <rect key="frame" x="-4" y="0.0" width="61" height="30"/>

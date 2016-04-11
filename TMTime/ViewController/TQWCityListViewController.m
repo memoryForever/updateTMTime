@@ -58,9 +58,10 @@
 - (IBAction)locationButton:(id)sender {
    // [self confirmCurrentCity];
    //MVVM 优化
+    kWeakSelf(mySelf);
     [self.cityListViewModel backCurrentCityCompleteHandler:^(NSError *error) {
-        self.showCurrentCity.text = kCurrentCityNameValue;
-         [self.cityListtableView reloadData];
+        mySelf.showCurrentCity.text = kCurrentCityNameValue;
+         [mySelf.cityListtableView reloadData];
     }];
 }
 - (void)getCurrentCityNameCompleteHandler:(NSString *)cityName{
@@ -111,9 +112,10 @@
 #pragma mark - 生命周期方法
 - (void)viewDidLoad {
     [super viewDidLoad];
+    kWeakSelf(mySelf);
     [self.cityListtableView registerClass:[TQWCityListCell class] forCellReuseIdentifier:kCityListTableViewCellReuseIdentified];
     [self.cityListViewModel getCityListCompleteHandler:^(NSError *error) {
-        [self.cityListtableView reloadData];
+        [mySelf.cityListtableView reloadData];
     }];
     self.showCurrentCity.text = kCurrentCityNameValue;
     

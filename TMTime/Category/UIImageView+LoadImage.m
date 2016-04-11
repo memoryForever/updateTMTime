@@ -17,15 +17,16 @@
         self.hidden = YES;
         return;
     }
+    kWeakSelf(mySelf);
     if ([[URL substringToIndex:7] isEqualToString:@"http://"] || [[URL substringToIndex:8] isEqualToString:@"https://"] ) {
         [UIView transitionWithView:self duration:1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
-            self.imageURL = [NSURL URLWithString:URL];
+            mySelf.imageURL = [NSURL URLWithString:URL];
         } completion:nil];
         
     }else{
         [UIView transitionWithView:self duration:1 options:UIViewAnimationOptionTransitionFlipFromRight animations:^{
             NSLog(@"%@",URL);
-            self.imageURL = [NSURL fileURLWithPath:URL];
+            mySelf.imageURL = [NSURL fileURLWithPath:URL];
         } completion:nil];
        
     }

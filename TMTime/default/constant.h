@@ -64,4 +64,11 @@
 #define kNotMoreData -10000
 /** 定位服务未开启 **/
 #define kNotLocatinServer -10001
+
+/** 定义弱self **/
+#define kWeakSelf(__kMySelf__) __weak typeof(self) __kMySelf__ = self
+/**
+ *  检测mem
+ */
+#define kTestMEM NSLog(@"%@,销毁了",[self class])
 #endif /* constant_h */

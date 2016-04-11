@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1609E26448CB1B99AD7EA911 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63F3D15CC12FEB04495D82DF /* libPods.a */; };
+		2A00C6911CBBB96500DA7FB4 /* NSObject+MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A00C6901CBBB96500DA7FB4 /* NSObject+MapView.m */; };
+		2A00C69D1CBBC65600DA7FB4 /* TQWAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A00C69C1CBBC65600DA7FB4 /* TQWAnnotation.m */; };
+		2A00C6A11CBBC6FD00DA7FB4 /* TQWAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A00C6A01CBBC6FD00DA7FB4 /* TQWAnnotationView.m */; };
 		2A503BC91CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A503BC81CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m */; };
 		2A503BCF1CB7D13B0054AAC7 /* TQWPerimeterZoneShopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A503BCE1CB7D13B0054AAC7 /* TQWPerimeterZoneShopViewModel.m */; };
 		2A542DFE1CB62F23004D1597 /* TQWCityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A542DFD1CB62F23004D1597 /* TQWCityListViewController.m */; };
@@ -53,6 +56,12 @@
 
 /* Begin PBXFileReference section */
 		233F5FA08ADBEB49168DB339 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		2A00C68F1CBBB96500DA7FB4 /* NSObject+MapView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MapView.h"; sourceTree = "<group>"; };
+		2A00C6901CBBB96500DA7FB4 /* NSObject+MapView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MapView.m"; sourceTree = "<group>"; };
+		2A00C69B1CBBC65600DA7FB4 /* TQWAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWAnnotation.h; sourceTree = "<group>"; };
+		2A00C69C1CBBC65600DA7FB4 /* TQWAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWAnnotation.m; sourceTree = "<group>"; };
+		2A00C69F1CBBC6FD00DA7FB4 /* TQWAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWAnnotationView.h; sourceTree = "<group>"; };
+		2A00C6A01CBBC6FD00DA7FB4 /* TQWAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWAnnotationView.m; sourceTree = "<group>"; };
 		2A503BC71CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWPerimeterZoneShopViewController.h; sourceTree = "<group>"; };
 		2A503BC81CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWPerimeterZoneShopViewController.m; sourceTree = "<group>"; };
 		2A503BCD1CB7D13B0054AAC7 /* TQWPerimeterZoneShopViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWPerimeterZoneShopViewModel.h; sourceTree = "<group>"; };
@@ -152,6 +161,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A00C69A1CBBC63A00DA7FB4 /* annotation */ = {
+			isa = PBXGroup;
+			children = (
+				2A00C69B1CBBC65600DA7FB4 /* TQWAnnotation.h */,
+				2A00C69C1CBBC65600DA7FB4 /* TQWAnnotation.m */,
+			);
+			name = annotation;
+			sourceTree = "<group>";
+		};
+		2A00C69E1CBBC6C000DA7FB4 /* AnnotationView */ = {
+			isa = PBXGroup;
+			children = (
+				2A00C69F1CBBC6FD00DA7FB4 /* TQWAnnotationView.h */,
+				2A00C6A01CBBC6FD00DA7FB4 /* TQWAnnotationView.m */,
+			);
+			name = AnnotationView;
+			sourceTree = "<group>";
+		};
 		2A503BC61CB7A1030054AAC7 /* 周边 */ = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +305,7 @@
 		49E8CE6D1CAD5236001610E1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				2A00C69A1CBBC63A00DA7FB4 /* annotation */,
 				49E8CE8E1CAEC152001610E1 /* TQWMovieNews.h */,
 				49E8CE8F1CAEC152001610E1 /* TQWMovieNews.m */,
 				493F436B1CAF952500CB4550 /* TQWDouBanMovie.h */,
@@ -347,6 +375,7 @@
 		49E8CE721CAD5236001610E1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2A00C69E1CBBC6C000DA7FB4 /* AnnotationView */,
 				49BF9F761CB16E100066997F /* TQWMovieCollectionViewCell.h */,
 				49BF9F771CB16E100066997F /* TQWMovieCollectionViewCell.m */,
 				49BF9FBC1CB29AD50066997F /* TQWInbriefTableViewCell.h */,
@@ -398,6 +427,8 @@
 				491D0C3A1CB6AF150013D195 /* NSObject+Location.m */,
 				2A697CDF1CB8A8810022BFEE /* NSObject+LocationV2.h */,
 				2A697CE01CB8A8810022BFEE /* NSObject+LocationV2.m */,
+				2A00C68F1CBBB96500DA7FB4 /* NSObject+MapView.h */,
+				2A00C6901CBBB96500DA7FB4 /* NSObject+MapView.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -564,6 +595,8 @@
 				2A697CDB1CB89E9A0022BFEE /* TQWCityAndCoodinate.m in Sources */,
 				49E8CE8D1CAEACE0001610E1 /* UIScrollView+Refersh.m in Sources */,
 				493F436D1CAF952500CB4550 /* TQWDouBanMovie.m in Sources */,
+				2A00C69D1CBBC65600DA7FB4 /* TQWAnnotation.m in Sources */,
+				2A00C6A11CBBC6FD00DA7FB4 /* TQWAnnotationView.m in Sources */,
 				2A542E061CB676DB004D1597 /* AppDelegate+Location.m in Sources */,
 				2A542DFE1CB62F23004D1597 /* TQWCityListViewController.m in Sources */,
 				49BF9FB51CB280190066997F /* ViewController.m in Sources */,
@@ -594,6 +627,7 @@
 				49BF9F691CB0041C0066997F /* TQWDBRequestFindBussiness.m in Sources */,
 				49E8CE841CAE88FC001610E1 /* AppDelegate+System.m in Sources */,
 				49BF9F861CB181F80066997F /* UIImageView+LoadImage.m in Sources */,
+				2A00C6911CBBB96500DA7FB4 /* NSObject+MapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

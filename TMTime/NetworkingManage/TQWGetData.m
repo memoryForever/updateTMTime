@@ -24,7 +24,8 @@
 
 @implementation TQWGetData
 +(void)getMovieNewsList:(NSString *)URLStr params:(NSDictionary *)params completeHandler:(void (^)(TQWMovieNewsList *, NSError *))completeHandler{
-    [self parserData:URLStr params:params modelClass:[TQWMovieNewsList class] completeHandler:^(id repondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf parserData:URLStr params:params modelClass:[TQWMovieNewsList class] completeHandler:^(id repondObject, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
            completeHandler(repondObject,error);
         });
@@ -40,7 +41,8 @@
                                  @"sortby" : @"desc",
                                  @"token" :kQIYUANTOKEN,
                                  };
-    [self GET:urlStr params:params completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf GET:urlStr params:params completeHandler:^(id respondObject, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             completeHandler([TQWMovieNewsList parserJson:respondObject],error);
         });
@@ -51,8 +53,8 @@
     NSString *URLStr = kDOUBANMOVI_SUBJECT;
     URLStr = [URLStr stringByAppendingPathComponent:movieID];
     NSLog(@"%@",URLStr);
-    
-    [self GET:URLStr params:nil completeHandler:^(id respondObject, NSError *error) {
+     kWeakSelf(mySelf);
+    [mySelf GET:URLStr params:nil completeHandler:^(id respondObject, NSError *error) {
        dispatch_async(dispatch_get_main_queue(), ^{
            completeHandler([TQWDouBanMovie  parserJson:respondObject],error);
        });
@@ -66,7 +68,8 @@
                              @"start":@(index),
                              @"count":@(count),
                              };
-    [self GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
+     kWeakSelf(mySelf);
+    [mySelf GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
               completeHandler([TQWDouBanInTheaters parserJson:respondObject],error);
         });
@@ -81,7 +84,8 @@
                              @"start":@(index),
                              @"count":@(count),
                              };
-    [self GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
        dispatch_async(dispatch_get_main_queue(), ^{
            completeHander([TQWDouBanSeacrchMovie parserJson:respondObject],error);
        });
@@ -94,7 +98,8 @@
                              @"start":@(index),
                              @"count":@(count),
                            };
-    [self GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
        dispatch_async(dispatch_get_main_queue(), ^{
            completeHander([TQWDouBanSeacrchMovie parserJson:respondObject],error);
        });
@@ -108,7 +113,8 @@
                              @"start":@(index),
                              @"count":@(count),
                              };
-    [self GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
        dispatch_async(dispatch_get_main_queue(), ^{
            completeHander([TQWDouBanSeacrchMovie parserJson:respondObject],error);
        });
@@ -120,15 +126,16 @@
                              @"start":@(index),
                              @"count":@(count),
                              };
-    
-    [self GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf GET:URLStr params:params completeHandler:^(id respondObject, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             completeHander([TQWDouBanMovieUSBox parserJson:respondObject],error);
         });
     }];
 }
 + (void)getDiPinBussiness:(TQWDBRequestFindBussiness *)requestFindBussiness completeHandler:(void (^)(TQWFindBussinessRespond *, NSError *))completeHandler{
-    [self GET:[DPRequest  requestWithURL:kDPSubDomain params:[requestFindBussiness getParams]] params:nil completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf GET:[DPRequest  requestWithURL:kDPSubDomain params:[requestFindBussiness getParams]] params:nil completeHandler:^(id respondObject, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             completeHandler([TQWFindBussinessRespond parserJson:respondObject],error);
         });
@@ -136,7 +143,8 @@
 }
 
 + (void)getDiPinBussinessRating:(NSInteger)BussinessID completeHander:(void (^)(TQWDPRating *, NSError *))completeHandler{
-    [self GET:[DPRequest requestWithURL:kDPSubDomain_rating params:@{@"business_id":@(BussinessID)}] params:nil completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf GET:[DPRequest requestWithURL:kDPSubDomain_rating params:@{@"business_id":@(BussinessID)}] params:nil completeHandler:^(id respondObject, NSError *error) {
        dispatch_async(dispatch_get_main_queue(), ^{
             completeHandler( [TQWDPRating parserJson:respondObject],error);
        });
@@ -144,7 +152,8 @@
 }
 
 + (void)getCitiesListCompleteHander:(void (^)(NSArray<TQWCities *>*, NSError *))completeHandler{
-    [self read:kPListCityGroups completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+    [mySelf read:kPListCityGroups completeHandler:^(id respondObject, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             completeHandler([TQWCities parserJson:respondObject],error);
         });

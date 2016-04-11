@@ -17,6 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view showFailure:@"数据载入出错,请检测网络"];
+    
 }
 
 - (void)didReceiveMemoryWarning {

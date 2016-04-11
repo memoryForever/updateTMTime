@@ -11,7 +11,8 @@
 @implementation NSObject (Parser)
 
 +(void)parserData:(NSString *)stringURL params:(NSDictionary *)params modelClass:(Class)classes completeHandler:(void (^)(id, NSError *))completeHandler{
-        [self GET:stringURL params:params completeHandler:^(id respondObject, NSError *error) {
+    kWeakSelf(mySelf);
+        [mySelf GET:stringURL params:params completeHandler:^(id respondObject, NSError *error) {
             
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                  //NSLog(@"%@",[NSThread currentThread])  ;

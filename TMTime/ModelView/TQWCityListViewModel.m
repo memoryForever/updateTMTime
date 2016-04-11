@@ -63,9 +63,10 @@
 }
 
 - (void)backCurrentCityCompleteHandler:(void (^)(NSError *))completeHandler{
+    kWeakSelf(myself);
     [TQWLocationManager LocationManagerDidGetCurrentCityNameCompleteHandler:^(NSString *cityName, NSError *error) {
         kSaveCurrentCityName(cityName);
-        kSendCityChangeNotification(self);
+        kSendCityChangeNotification(myself);
         completeHandler(error);
     }];
 }

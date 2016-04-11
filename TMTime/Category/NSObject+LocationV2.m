@@ -70,8 +70,9 @@
 
 - (void)TQWLocationManagerDidGetCurrentCityNameCompleteHandler:(void (^)(NSString *, NSError *))CompleteHander{
     [self loadPropertyValue];
-    [self TQWLocationManagerDidGetCurrentLocationCoordinateCompleteHandler:^(CLLocationCoordinate2D coordinate2D, NSError *error) {
-        [self.TQWGeocoder reverseGeocodeLocation:[[CLLocation alloc]initWithLatitude:coordinate2D.latitude longitude:coordinate2D.longitude] completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+    kWeakSelf(mySelf);
+    [mySelf TQWLocationManagerDidGetCurrentLocationCoordinateCompleteHandler:^(CLLocationCoordinate2D coordinate2D, NSError *error) {
+        [mySelf.TQWGeocoder reverseGeocodeLocation:[[CLLocation alloc]initWithLatitude:coordinate2D.latitude longitude:coordinate2D.longitude] completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             CLPlacemark *placekmark = [placemarks firstObject];
             NSString* cityName = [placekmark.addressDictionary[@"City"] stringByReplacingOccurrencesOfString:@"市" withString:@""];
             CompleteHander(cityName,error);
@@ -80,8 +81,9 @@
 }
 - (void)TQWLocationManagerGetCurrentDetailLocationInfoCompletereHandler:(void (^)(CLPlacemark *,NSError*))CompleteHandler{
     [self loadPropertyValue];
+    kWeakSelf(mySelf);
     [self TQWLocationManagerDidGetCurrentLocationCoordinateCompleteHandler:^(CLLocationCoordinate2D coordinate2D, NSError *error) {
-        [self.TQWGeocoder reverseGeocodeLocation:[[CLLocation alloc]initWithLatitude:coordinate2D.latitude longitude:coordinate2D.longitude] completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
+        [mySelf.TQWGeocoder reverseGeocodeLocation:[[CLLocation alloc]initWithLatitude:coordinate2D.latitude longitude:coordinate2D.longitude] completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
             CLPlacemark *placekmark = [placemarks firstObject];
             CompleteHandler(placekmark,error);
         } ];

@@ -8,7 +8,8 @@
 
 #import "TQWPerimeterZoneShopViewController.h"
 #import "TQWPerimeterZoneShopViewModel.h"
-
+#import "TQWAnnotation.h"
+#import "TQWAnnotationView.h"
 //如需更改,请同时该stroybard 对应位置
 #define  kShopTableViewCellReuseIdentified @"shopTableViewCell"
 
@@ -39,7 +40,7 @@ typedef NS_ENUM(NSInteger ,SegmentedSelectedViewController){
 
 
 
-@interface TQWPerimeterZoneShopViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface TQWPerimeterZoneShopViewController ()<UITableViewDataSource,UITableViewDelegate,MKMapViewDelegate>
 
 /** 地图视图view **/
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -74,8 +75,9 @@ typedef NS_ENUM(NSInteger ,SegmentedSelectedViewController){
 - (TQWPerimeterZoneShopViewModel *)perimeterZoneViewModel{
     if (!_perimeterZoneViewModel) {
         _perimeterZoneViewModel = [[TQWPerimeterZoneShopViewModel alloc]init];
-       
+        //赋值成功,添加地图标签
     }
+    
     return _perimeterZoneViewModel;
 }
 
@@ -106,6 +108,14 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
     NSMutableAttributedString *mAttString = [[NSMutableAttributedString alloc]initWithAttributedString:RMBlogo];
     [mAttString appendAttributedString:priceString];
     cell.shopPriceLabel.attributedText = mAttString;
+    //添加 annotation
+    TQWAnnotation *ann = [self.perimeterZoneViewModel bussinessAnnotationWithIndex:index];
+    [self.mapView addAnnotation:ann];
+    if (index % 5 == 0 && ann) {
+        NSLog(@"%lf ,%lf",ann.coordinate.latitude , ann.coordinate.longitude);
+      //[self.mapView setVisibleMapRect:MKMapRectMake(40, 116, 0, 0) animated:YES];
+        [self.mapView setRegion:MKCoordinateRegionMake(ann.coordinate, MKCoordinateSpanMake(0.01, 0.01)) animated:YES];
+    }
     return cell;
 }
 
@@ -116,29 +126,45 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityChange) name:kCurrentCityChangeNotification object:nil];
     [self.currentCityButton setTitle:kCurrentCityNameValue];
     [self.tableView setHidden:YES];
+    kWeakSelf(mySelf);
     [self.perimeterZoneViewModel getBussinessInfoCompleteHandler:^(NSError *error) {
         if (error) {
             if (error.code == kNotMoreData) {
-                [self.view showSuccess:@"没有更多数据载入了"];
+                [mySelf.view showSuccess:@"没有更多数据载入了"];
             }
         }else{
-           [self.tableView reloadData];
+           [mySelf.tableView reloadData];
         }
-        [self.tableView endedFooterRefersh];
-        [self.tableView endedHeadRefersh];
+        [mySelf.tableView endedFooterRefersh];
+        [mySelf.tableView endedHeadRefersh];
     }];
-    [self.tableView addHeadRefershAnimation:^{
-        [self.perimeterZoneViewModel refershDataAndRefersh:RefershTypePullUp];
+    [mySelf.tableView addHeadRefershAnimation:^{
+        [mySelf.perimeterZoneViewModel refershDataAndRefersh:RefershTypePullUp];
     }];
-    [self.tableView addFooterRefersh:^{
-        [self.perimeterZoneViewModel refershDataAndRefersh:RefershTypeLoadModeData];
+    [mySelf.tableView addFooterRefersh:^{
+        [mySelf.perimeterZoneViewModel refershDataAndRefersh:RefershTypeLoadModeData];
     }];
- 
+    //配置 mapView
+    self.mapView.showsUserLocation = YES ;
+    self.mapView.showsScale = YES ;
 }
 
 - (void)dealloc{
     kRemoveAllObserver;
+    kTestMEM;
+    [_mapView removeFromSuperview];
 }
+#pragma mark - mapView delegate 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
+    if (![annotation isKindOfClass:[TQWAnnotation class]]) {
+        return nil;
+    }
+    TQWAnnotationView *anntationView = [TQWAnnotationView annotationViewWithMakView:mapView annotation:annotation];
+    anntationView.canShowCallout = YES ;
+    return anntationView;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -155,6 +181,7 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
 }
 
 - (IBAction)back:(UIButton *)sender {
+    //[self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -163,5 +190,6 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
     [self.perimeterZoneViewModel refershDataAndRefersh:RefershTypeCityChange];
 }
 
-#pragma mark - 
+#pragma mark - 实例方法
+
 @end

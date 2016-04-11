@@ -12,6 +12,7 @@
 #import "TQWDBRequestFindBussiness.h"
 #import "NSObject+Location.h"
 #import "TQWLocationManager.h"
+#import "TQWAnnotation.h"
 
 #define kPrepageRowNumber 30
 /** 预加载条件是倒数第5行开始 **/
@@ -60,7 +61,7 @@
     }
     return _requestFindBussiness;
 }
-#pragma tableView 相关
+#pragma mark - tableView 相关
 - (NSUInteger)rowNumber
 {
     return _bussessContainer.count;
@@ -102,24 +103,40 @@
     }
     return self.bussessContainer[index].online_reservation_url;
 }
+
+#pragma mark - mapView
+- (CLLocationCoordinate2D)bussinessCoordiate2DWithIndex:(NSInteger)index{
+    return CLLocationCoordinate2DMake(self.bussessContainer[index].latitude, self.bussessContainer[index].longitude);
+}
+
+- (TQWAnnotation *)bussinessAnnotationWithIndex:(NSInteger)index{
+    TQWAnnotation *ann = [[TQWAnnotation alloc]init];
+    ann.title = [self bussinessNameWithIndex:index];
+    ann.subtitle = self.bussessContainer[index].address;
+    ann.URLImage = [self bussinessImageURLStringWithIndex:index];
+    ann.coordinate = [self bussinessCoordiate2DWithIndex:index];
+    return ann;
+}
+
 #pragma mark - 数据/模型 获取
 - (void)getBussinessInfoCompleteHandler:(void (^)(NSError *))completeHandler{
+    kWeakSelf(mySelf);
     [TQWLocationManager LocationManagerDidGetCurrentLocationCoordinateCompleteHandler:^(CLLocationCoordinate2D coordinate2D, NSError *error) {
-        self.requestFindBussiness.latitude = coordinate2D.latitude;
-        self.requestFindBussiness.longitude = coordinate2D.longitude;
+        mySelf.requestFindBussiness.latitude = coordinate2D.latitude;
+        mySelf.requestFindBussiness.longitude = coordinate2D.longitude;
         NSLog(@"----%lf, %lf",coordinate2D.longitude,coordinate2D.latitude);
-        self.currentCoordinate = coordinate2D;
+        mySelf.currentCoordinate = coordinate2D;
         [TQWLocationManager LocationManagerCoordinate2D:coordinate2D ReverseGeocodingCompleteHandler:^(NSString *cityName, NSError *error) {
             if (_currentCity && [cityName isEqualToString:_currentCity]) {
             }else {
                 if ( ![cityName isEqualToString:kCurrentCityNameValue]) {
-                    self.requestFindBussiness.city = kCurrentCityNameValue;
-                    self.currentCity = cityName;
+                    mySelf.requestFindBussiness.city = kCurrentCityNameValue;
+                    mySelf.currentCity = cityName;
                 }
             }
-        [TQWGetData getDiPinBussiness:self.requestFindBussiness completeHandler:^(TQWFindBussinessRespond *bussinessRespond, NSError *error) {
-                [self.bussessContainer  addObjectsFromArray:bussinessRespond.businesses];
-                NSLog(@"载入数目:%ld",self.bussessContainer.count);
+        [TQWGetData getDiPinBussiness:mySelf.requestFindBussiness completeHandler:^(TQWFindBussinessRespond *bussinessRespond, NSError *error) {
+                [mySelf.bussessContainer  addObjectsFromArray:bussinessRespond.businesses];
+                NSLog(@"载入数目:%ld",mySelf.bussessContainer.count);
                 completeHandler(error);
                 _loadDataCompleteOperater = completeHandler;
             }];
@@ -153,8 +170,9 @@
 
 #pragma mark - 私有方法
 - (void)loadData {
+    kWeakSelf(myself);
     [TQWGetData getDiPinBussiness:self.requestFindBussiness completeHandler:^(TQWFindBussinessRespond *bussinessRespond, NSError *error) {
-        [self.bussessContainer  addObjectsFromArray:bussinessRespond.businesses];
+        [myself.bussessContainer  addObjectsFromArray:bussinessRespond.businesses];
         _loadDataCompleteOperater(error);
     }];
 
@@ -190,6 +208,7 @@
 
 - (void)dealloc{
     kRemoveAllObserver;
+    NSLog(@"%@,销毁了",[self class]);
 }
 
 @end
