@@ -9,6 +9,7 @@
 #import "TQWCityListViewModel.h"
 #import "TQWCities.h"
 #import "TQWGetData.h"
+#import "TQWLocationManager.h"
 
 @interface TQWCityListViewModel()
 
@@ -57,6 +58,14 @@
 -(void)getCityListCompleteHandler:(void (^)(NSError *))completeHandler{
     [TQWGetData getCitiesListCompleteHander:^(NSArray<TQWCities *>*cities, NSError *error) {
         [_cityList addObjectsFromArray:cities];
+        completeHandler(error);
+    }];
+}
+
+- (void)backCurrentCityCompleteHandler:(void (^)(NSError *))completeHandler{
+    [TQWLocationManager LocationManagerDidGetCurrentCityNameCompleteHandler:^(NSString *cityName, NSError *error) {
+        kSaveCurrentCityName(cityName);
+        kSendCityChangeNotification(self);
         completeHandler(error);
     }];
 }

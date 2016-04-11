@@ -92,7 +92,8 @@
 }
 
 - (NSString *)bussinessDisCountWithIndex:(NSInteger)index{
-    return [NSString stringWithFormat:@"95"];
+    //假数据,未捕获相关数据源
+    return [NSString stringWithFormat:@"95折"];
 }
 
 - (NSString *)bussinessReservationWithIndex:(NSInteger)index{

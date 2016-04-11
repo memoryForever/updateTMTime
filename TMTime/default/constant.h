@@ -53,6 +53,8 @@
 [[NSUserDefaults standardUserDefaults] synchronize];}while(0)
 #define kCurrentCityChangeNotification @"currentCityChange"
 
+#define kSendCityChangeNotification(mySelf)  [[NSNotificationCenter defaultCenter] postNotificationName:kCurrentCityChangeNotification object:mySelf]
+
 /** 设置RGB颜色 **/
 #define kRGBAColor(R,G,B,A) [UIColor colorWithRed:R/225.0 green:G/255.0 blue:B/255.0 alpha:A]
 

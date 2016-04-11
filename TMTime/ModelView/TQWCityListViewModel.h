@@ -17,4 +17,8 @@
 - (NSArray<NSString*>*)sectionIndexTitles;
 /** model属性 **/
 - (void)getCityListCompleteHandler:(void(^)(NSError *error))completeHandler;
+/**
+ *  回到当前用户所在的城市
+ */
+- (void)backCurrentCityCompleteHandler:(void(^)(NSError* error))completeHandler;
 @end

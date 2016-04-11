@@ -8,7 +8,7 @@
 
 #import "TQWCityListViewController.h"
 #import "TQWCityListViewModel.h"
-#import "NSObject+Location.h"
+
 
 #define kCityListTableViewCellReuseIdentified @"cityListCell"
 
@@ -56,7 +56,12 @@
 
 #pragma mark - 控制器响应方法
 - (IBAction)locationButton:(id)sender {
-    [self confirmCurrentCity];
+   // [self confirmCurrentCity];
+   //MVVM 优化
+    [self.cityListViewModel backCurrentCityCompleteHandler:^(NSError *error) {
+        self.showCurrentCity.text = kCurrentCityNameValue;
+         [self.cityListtableView reloadData];
+    }];
 }
 - (void)getCurrentCityNameCompleteHandler:(NSString *)cityName{
     self.showCurrentCity.text = cityName;

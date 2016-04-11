@@ -48,5 +48,4 @@ static id _singleIntance = nil  ;
      }];
 }
 
-
 @end

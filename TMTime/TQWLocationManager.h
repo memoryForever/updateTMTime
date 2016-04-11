@@ -35,4 +35,5 @@
  *  @param CompleteHandler 完成时调用block
  */
 + (void)LocationManagerCoordinate2D:(CLLocationCoordinate2D)coordinate2D  ReverseGeocodingCompleteHandler:(void(^)(NSString *cityName ,NSError *error))CompleteHandler;
+
 @end
