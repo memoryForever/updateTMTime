@@ -69,11 +69,18 @@
 
 - (void)setCategory:(NSString *)category{
     _category = category;
+    if (category.length == 0 ) {
+        [self.param removeObjectForKey:@"category"];
+        return;
+    }
     [self.param setObject:_category forKey:@"category"];
 }
 
 - (void)setKeyword:(NSString *)keyword{
     _keyword = keyword;
+    if (keyword.length == 0) {
+        [self.param removeObjectForKey:@"keyword"];
+    }
     [self.param setObject:_keyword forKey:@"keyword"];
 }
 

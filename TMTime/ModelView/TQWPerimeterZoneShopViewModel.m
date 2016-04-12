@@ -53,7 +53,7 @@
         TQWDBRequestFindBussiness *request = [[TQWDBRequestFindBussiness alloc]init];
         _requestFindBussiness = request ;
         request.mapType = MapTypeGaoDe ;
-        request.radius = 2000 ;
+        request.radius = 5000 ;
         request.category = kBussinessTypeFooder;
         request.page = 1 ;
         request.limitPaginalMaxBuessinesCount = kPrepageRowNumber ;
@@ -121,10 +121,14 @@
 #pragma mark - 数据/模型 获取
 - (void)getBussinessInfoCompleteHandler:(void (^)(NSError *))completeHandler{
     kWeakSelf(mySelf);
+    _loadDataCompleteOperater = completeHandler;
     [TQWLocationManager LocationManagerDidGetCurrentLocationCoordinateCompleteHandler:^(CLLocationCoordinate2D coordinate2D, NSError *error) {
+        if (error) {
+            mySelf.requestFindBussiness.city = kCurrentCityNameValue;
+            [mySelf loadData];
+        }
         mySelf.requestFindBussiness.latitude = coordinate2D.latitude;
         mySelf.requestFindBussiness.longitude = coordinate2D.longitude;
-        NSLog(@"----%lf, %lf",coordinate2D.longitude,coordinate2D.latitude);
         mySelf.currentCoordinate = coordinate2D;
         [TQWLocationManager LocationManagerCoordinate2D:coordinate2D ReverseGeocodingCompleteHandler:^(NSString *cityName, NSError *error) {
             if (_currentCity && [cityName isEqualToString:_currentCity]) {
@@ -136,9 +140,7 @@
             }
         [TQWGetData getDiPinBussiness:mySelf.requestFindBussiness completeHandler:^(TQWFindBussinessRespond *bussinessRespond, NSError *error) {
                 [mySelf.bussessContainer  addObjectsFromArray:bussinessRespond.businesses];
-                NSLog(@"载入数目:%ld",mySelf.bussessContainer.count);
                 completeHandler(error);
-                _loadDataCompleteOperater = completeHandler;
             }];
         }];
     }];
@@ -166,7 +168,21 @@
    
 }
 
-
+- (void)bussinessSearchCategory:(BussinessType)type keyword:(NSString *)keyword{
+    if (type != BussinessTypeNone) {
+           self.requestFindBussiness.category = @[kBussinessTypeFooder,kBussinessTypeCinema,kBussinessTypeHotel,kBussinessTypeSupermarker][type];
+    }else {
+        self.requestFindBussiness.category = nil ;
+    }
+    if (keyword.length != 0) {
+        self.requestFindBussiness.keyword = keyword;
+    }
+    if (type != BussinessTypeNone || keyword.length != 0 ) {
+        self.requestFindBussiness.page = 1 ;
+        [self.bussessContainer removeAllObjects];
+        [self loadData];
+    }
+}
 
 #pragma mark - 私有方法
 - (void)loadData {

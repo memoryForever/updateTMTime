@@ -14,13 +14,6 @@
 
 @class TQWAnnotation;
 
-typedef NS_ENUM(NSInteger , BussinessType) {
-    BussinessTypeFooder = 1 ,
-    BussinessTypeCinema  ,
-    BussinessTypeHotel ,
-    BussinessTypeSupermarker ,
-};
-
 typedef  NS_ENUM(NSInteger ,RefershType) {
     //城市改变刷新
     RefershTypeCityChange,
@@ -52,10 +45,26 @@ typedef  NS_ENUM(NSInteger ,RefershType) {
 //mapView相关
 /** 商品的2d坐标 **/
 - (CLLocationCoordinate2D)bussinessCoordiate2DWithIndex:(NSInteger)index;
+/** 大头针下标 **/
 - (TQWAnnotation*)bussinessAnnotationWithIndex:(NSInteger)index;
+/** 获取当前显示的类别,和关键字 **/
+- (void)bussinessFindCurrentInfo:(void(^)(NSString *category , NSString* keyword ))currentInfo;
 //Model 属性
 /** 获取商品信息 **/
 - (void)getBussinessInfoCompleteHandler:(void(^)(NSError *error))completeHandler;
+/**
+ *  刷新
+ *
+ *  @param type 刷新类型
+ */
 - (void)refershDataAndRefersh:(RefershType)type;
+/**
+ *  企业搜索
+ *
+ *  @param type    类型
+ *  @param keyword 关键字
+ */
+- (void)bussinessSearchCategory:(BussinessType)type keyword:(NSString*)keyword;
+
 
 @end

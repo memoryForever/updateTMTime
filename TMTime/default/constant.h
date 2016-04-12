@@ -70,5 +70,13 @@
 /**
  *  检测mem
  */
+/** 商品类型 **/
+typedef NS_ENUM(NSInteger , BussinessType) {
+    BussinessTypeFooder = 0 ,
+    BussinessTypeCinema  ,
+    BussinessTypeHotel ,
+    BussinessTypeSupermarker ,
+    BussinessTypeNone = 200 ,
+};
 #define kTestMEM NSLog(@"%@,销毁了",[self class])
 #endif /* constant_h */

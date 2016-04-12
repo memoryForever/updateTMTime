@@ -20,6 +20,7 @@
 		2A697CDB1CB89E9A0022BFEE /* TQWCityAndCoodinate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A697CDA1CB89E9A0022BFEE /* TQWCityAndCoodinate.m */; };
 		2A697CDE1CB89F7F0022BFEE /* TQWLocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A697CDD1CB89F7F0022BFEE /* TQWLocationManager.m */; };
 		2A697CE11CB8A8810022BFEE /* NSObject+LocationV2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A697CE01CB8A8810022BFEE /* NSObject+LocationV2.m */; };
+		2AB2EFC21CBCDB8C0009D10D /* TQWSearchPerimeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB2EFC11CBCDB8C0009D10D /* TQWSearchPerimeterViewController.m */; };
 		491D0C3B1CB6AF150013D195 /* NSObject+Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 491D0C3A1CB6AF150013D195 /* NSObject+Location.m */; };
 		493F436D1CAF952500CB4550 /* TQWDouBanMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F436C1CAF952500CB4550 /* TQWDouBanMovie.m */; };
 		494D20AD1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 494D20AC1CB574CE00E127AD /* NSObject+UseMasterClassMethod.m */; };
@@ -79,6 +80,8 @@
 		2A697CDD1CB89F7F0022BFEE /* TQWLocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWLocationManager.m; sourceTree = "<group>"; };
 		2A697CDF1CB8A8810022BFEE /* NSObject+LocationV2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LocationV2.h"; sourceTree = "<group>"; };
 		2A697CE01CB8A8810022BFEE /* NSObject+LocationV2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LocationV2.m"; sourceTree = "<group>"; };
+		2AB2EFC01CBCDB8C0009D10D /* TQWSearchPerimeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWSearchPerimeterViewController.h; sourceTree = "<group>"; };
+		2AB2EFC11CBCDB8C0009D10D /* TQWSearchPerimeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWSearchPerimeterViewController.m; sourceTree = "<group>"; };
 		491D0C391CB6AF150013D195 /* NSObject+Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Location.h"; sourceTree = "<group>"; };
 		491D0C3A1CB6AF150013D195 /* NSObject+Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Location.m"; sourceTree = "<group>"; };
 		493F436B1CAF952500CB4550 /* TQWDouBanMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWDouBanMovie.h; sourceTree = "<group>"; };
@@ -184,6 +187,8 @@
 			children = (
 				2A503BC71CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.h */,
 				2A503BC81CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m */,
+				2AB2EFC01CBCDB8C0009D10D /* TQWSearchPerimeterViewController.h */,
+				2AB2EFC11CBCDB8C0009D10D /* TQWSearchPerimeterViewController.m */,
 			);
 			name = "周边";
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2AB2EFC21CBCDB8C0009D10D /* TQWSearchPerimeterViewController.m in Sources */,
 				49BF9FBB1CB283370066997F /* TQWMainViewModel.m in Sources */,
 				49BF9F261CAFB82E0066997F /* TQWDouBanSeacrchMovie.m in Sources */,
 				49E8CE9C1CAED054001610E1 /* NSObject+Parser.m in Sources */,

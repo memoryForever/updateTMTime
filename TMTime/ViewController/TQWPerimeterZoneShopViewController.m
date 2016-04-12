@@ -10,8 +10,11 @@
 #import "TQWPerimeterZoneShopViewModel.h"
 #import "TQWAnnotation.h"
 #import "TQWAnnotationView.h"
+#import "TQWSearchPerimeterViewController.h"
+
 //如需更改,请同时该stroybard 对应位置
 #define  kShopTableViewCellReuseIdentified @"shopTableViewCell"
+#define  kSearchSegueIdentified @"searchSegue"
 
 typedef NS_ENUM(NSInteger ,SegmentedSelectedViewController){
     SegmentedSelectedViewControllerMapView = 0,
@@ -112,8 +115,6 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
     TQWAnnotation *ann = [self.perimeterZoneViewModel bussinessAnnotationWithIndex:index];
     [self.mapView addAnnotation:ann];
     if (index % 5 == 0 && ann) {
-        NSLog(@"%lf ,%lf",ann.coordinate.latitude , ann.coordinate.longitude);
-      //[self.mapView setVisibleMapRect:MKMapRectMake(40, 116, 0, 0) animated:YES];
         [self.mapView setRegion:MKCoordinateRegionMake(ann.coordinate, MKCoordinateSpanMake(0.01, 0.01)) animated:YES];
     }
     return cell;
@@ -176,18 +177,30 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
 
 - (IBAction)viewChangedsegmentedAction:(UISegmentedControl*)sender {
     _tableView.hidden = !_tableView.hidden;
-    if(!_tableView.hidden)
+    _mapView.hidden = !_tableView.hidden;
+    
     [self.tableView reloadData];
 }
 
 - (IBAction)back:(UIButton *)sender {
     //[self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 - (void)cityChange{
    [self.currentCityButton setTitle:kCurrentCityNameValue];
     [self.perimeterZoneViewModel refershDataAndRefersh:RefershTypeCityChange];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    kWeakSelf(mySelf);
+    if ([segue.identifier isEqualToString:kSearchSegueIdentified]) {
+        TQWSearchPerimeterViewController *SearchVC = segue.destinationViewController;
+        SearchVC.backBlock = ^(BussinessType category ,NSString *keyword){
+            [mySelf.perimeterZoneViewModel bussinessSearchCategory:category keyword:keyword];
+        };
+    }
 }
 
 #pragma mark - 实例方法
