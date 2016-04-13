@@ -153,7 +153,15 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
 - (void)dealloc{
     kRemoveAllObserver;
     kTestMEM;
-    [_mapView removeFromSuperview];
+    self.mapView.showsUserLocation = NO;
+    self.mapView.userTrackingMode  = MKUserTrackingModeNone;
+    [self.mapView.layer removeAllAnimations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    [self.mapView removeOverlays:self.mapView.overlays];
+    [self.mapView removeFromSuperview];
+    self.mapView.delegate = nil;
+    self.mapView = nil;
+    
 }
 #pragma mark - mapView delegate 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
@@ -164,8 +172,10 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
     anntationView.canShowCallout = YES ;
     return anntationView;
 }
-
-
+- (void)mapView:(MKMapView *)mapView didChangeUserTrackingMode:(MKUserTrackingMode)mode animated:(BOOL)animated{
+    [_mapView removeFromSuperview];
+    [self.view addSubview:_mapView];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
