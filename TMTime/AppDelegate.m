@@ -11,6 +11,8 @@
 #import "ViewController.h"
 #import "TQWGetData.h"
 #import "AppDelegate+Location.h"
+#import "TQWGetData.h"
+#import "TQWDouBanMovieUSBox.h"
 
 
 @interface AppDelegate ()

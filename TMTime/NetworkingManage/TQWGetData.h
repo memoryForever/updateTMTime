@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-@class TQWMovieNewsList,TQWDouBanMovie,TQWDouBanInTheaters,TQWDouBanSeacrchMovie,TQWDBRequestFindBussiness,TQWDBReques,TQWFindBussinessRespond,TQWDPRating ,TQWCities;
+@class TQWMovieNewsList,TQWDouBanMovie,TQWDouBanInTheaters,TQWDouBanSeacrchMovie,TQWDBRequestFindBussiness,TQWDBReques,TQWFindBussinessRespond,TQWDPRating ,TQWCities,TQWDouBanMovieUSBox;
 @interface TQWGetData : NSObject
 +(void)getMovieNewsList:(NSString*)URLStr params:(NSDictionary*)params completeHandler:(void(^)(TQWMovieNewsList *movieNewsList,NSError *error)) completeHandler;
 /**
@@ -67,7 +67,7 @@
  *  @param count          获取数量
  *  @param completeHander 获取成功后调用
  */
-+ (void)getUSBoxStart:(NSUInteger)index count:(NSUInteger)count completeHandler:(void(^)(TQWDouBanMovie *ComingSoonMovies,NSError *error)) completeHander;
++ (void)getUSBoxStart:(NSUInteger)index count:(NSUInteger)count completeHandler:(void(^)(TQWDouBanMovieUSBox *ComingSoonMovies,NSError *error)) completeHander;
 /**
  *  搜索点评网的商户数据
  *

@@ -11,9 +11,14 @@
 #import "TQWMovieCollectionViewCell.h"
 #import "constant.h"
 #import "TQWInbriefTableViewCell.h"
+#import "TQWMovieRatingViewController.h"
+#import "TQWNewShowPageViewController.h"
 
 #define kHideTabbar self.tabBarController.tabBar.hidden = YES
 #define kAppearTabbar self.tabBarController.tabBar.hidden = NO
+#define kMovieRatingSegue @"MovieRating"
+#define kMovieRatingType250 @"MovieRatingType250"
+#define kMovieRatingTypeNorthernAmericaBox @"MovieRatingTypeNorthernAmericaBox"
 
 #define itemWidth 105
 #define itemSpace 10
@@ -54,6 +59,16 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 
 /** 计算属性 **/
 @property (nonatomic,assign)CGFloat lineSpacing;
+//事件响应
+/** 250排行榜 **/
+- (IBAction)into250RatingButton:(id)sender;
+/** 北美票房榜 **/
+- (IBAction)intoNABoxOffice:(id)sender;
+/** 约影 **/
+- (IBAction)intoTogeter:(id)sender;
+/** 进入游戏 **/
+- (IBAction)intoGame:(id)sender;
+
 @end
 
 @implementation TQWMainViewController
@@ -124,6 +139,14 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
     
     return myCell ;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    NSInteger row = indexPath.row;
+    TQWNewShowPageViewController *newShowPage = [[TQWNewShowPageViewController alloc]init];
+    [newShowPage showContentString:[self.mainViewModel movieNewContent:row] Images:[self.mainViewModel movieNewImages:row]];
+    [self.navigationController pushViewController:newShowPage animated:YES];
+}
+
 #pragma mark - touch 方法
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
@@ -135,6 +158,18 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
     [self.mainViewModel refreshMovieInTheaters];
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+   
+    if ([segue.identifier isEqualToString:kMovieRatingSegue]) {
+        TQWMovieRatingViewController *ratingVC = segue.destinationViewController ;
+        if ([kMovieRatingType250 isEqualToString:sender]) {
+            ratingVC.Type = MovieRatingType250 ;
+        }
+        if ([kMovieRatingTypeNorthernAmericaBox isEqualToString:sender]) {
+            ratingVC.Type = MovieRatingTypeNorthernAmericaBox ;
+        }
+    }
+}
 
 #pragma mark - 生命周期方法
 
@@ -186,4 +221,16 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 }
 
 
+- (IBAction)into250RatingButton:(id)sender {
+    [self performSegueWithIdentifier:kMovieRatingSegue sender:kMovieRatingType250];
+}
+
+- (IBAction)intoNABoxOffice:(id)sender {
+    [self performSegueWithIdentifier:kMovieRatingSegue sender:kMovieRatingTypeNorthernAmericaBox];
+}
+
+- (IBAction)intoTogeter:(id)sender {
+}
+- (IBAction)intoGame:(id)sender {
+}
 @end

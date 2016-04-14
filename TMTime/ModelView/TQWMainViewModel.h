@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger ,RefershType) {
 - (NSString*) movieNewLeftImage:(NSInteger)index;
 - (NSString*) movieNewCenterImage:(NSInteger)index;
 - (NSString*) movieNewRightImage:(NSInteger)index;
+- (NSArray<NSString*>*) movieNewImages:(NSInteger)index ;
 
 /** model 相关的属性 **/
 - (void)getMovieInTheatersCompleteHandler:(void(^)(NSError *error))completeHandler;

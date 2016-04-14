@@ -78,5 +78,18 @@ typedef NS_ENUM(NSInteger , BussinessType) {
     BussinessTypeSupermarker ,
     BussinessTypeNone = 200 ,
 };
+
+/** 电影排行版类型 **/
+typedef NS_ENUM(NSUInteger,MovieRatingType) {
+    MovieRatingType250,
+    MovieRatingTypeNorthernAmericaBox,
+};
 #define kTestMEM NSLog(@"%@,销毁了",[self class])
+/** 调试输出 **/
+#ifdef  DEBUG
+    #define KLog(...) NSLog(__VA_ARGS__)
+#else
+    #define kLog(...)
+#endif
+
 #endif /* constant_h */

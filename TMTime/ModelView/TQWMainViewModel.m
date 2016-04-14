@@ -123,6 +123,9 @@
 - (NSString *)movieNewRightImage:(NSInteger)index{
     return self.movieNewContainer[index].movieNewImageURLS[2];
 }
+- (NSArray<NSString *> *)movieNewImages:(NSInteger)index{
+    return self.movieNewContainer[index].movieNewImageURLS;
+}
 
 #pragma  mark - 获取数据
 - (void)getMovieInTheatersCompleteHandler:(void (^)(NSError *))completeHandler{

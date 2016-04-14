@@ -120,7 +120,7 @@
        });
     }];
 }
-+ (void)getUSBoxStart:(NSUInteger)index count:(NSUInteger)count completeHandler:(void (^)(TQWDouBanMovie *, NSError *))completeHander{
++ (void)getUSBoxStart:(NSUInteger)index count:(NSUInteger)count completeHandler:(void (^)(TQWDouBanMovieUSBox*, NSError *))completeHander{
     NSString *URLStr = kDOUBANMOVI_USBox ;
     NSDictionary *params = @{
                              @"start":@(index),
