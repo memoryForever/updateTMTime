@@ -11,6 +11,7 @@
 #import "TQWDouBanMovie.h"
 #import "TQWGetData.h"
 #import "TQWMovieNews.h"
+#import "TQWDouBanSeacrchMovie.h"
 
 #define perpageNumber 6
 #define onceLoadingNumber 12
@@ -162,6 +163,13 @@
     }];
 }
 
+
+//- (NSString *)movieSearchWithName:(NSString *)name completionHandle:(void (^)(NSString *))completionHandle{
+//    [TQWGetData getMovieSearchCondition:name movieType:@"" respondStart:0 count:1 completeHandler:^(TQWDouBanSeacrchMovie *respondMovieList, NSError *error) {
+//        respondMovieList.subjects.firstObject.
+//        //completionHandle(respondMovieList)
+//    }];
+//}
 #pragma mark - selector 相关方法
 
 

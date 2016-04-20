@@ -20,6 +20,7 @@ typedef NS_ENUM(NSUInteger ,RefershType) {
 - (NSString *) movieTitleWithIndex:(NSUInteger)index ;
 - (NSString *) movieRatingWithIndex:(NSUInteger)index ;
 - (NSString *) moviePosterWithIndex:(NSUInteger)index ;
+- (NSString *) movieSearchWithName:(NSString*)name completionHandle:(void(^)(NSString* strURL))completionHandle ;
 
 /** tableView 相关的属性 **/
 - (NSUInteger)tableRowNumber;

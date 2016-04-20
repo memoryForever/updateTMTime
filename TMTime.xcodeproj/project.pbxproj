@@ -11,6 +11,8 @@
 		2A00C6911CBBB96500DA7FB4 /* NSObject+MapView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A00C6901CBBB96500DA7FB4 /* NSObject+MapView.m */; };
 		2A00C69D1CBBC65600DA7FB4 /* TQWAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A00C69C1CBBC65600DA7FB4 /* TQWAnnotation.m */; };
 		2A00C6A11CBBC6FD00DA7FB4 /* TQWAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A00C6A01CBBC6FD00DA7FB4 /* TQWAnnotationView.m */; };
+		2A0ECBD91CC5D2D400D2ABFB /* TQWShowPagesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ECBD81CC5D2D400D2ABFB /* TQWShowPagesViewController.m */; };
+		2A0ECBDC1CC6404200D2ABFB /* TQWScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ECBDB1CC6404200D2ABFB /* TQWScaleViewController.m */; };
 		2A1892F31CBDE7EB0081EB4B /* TQWMovieRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1892F21CBDE7EB0081EB4B /* TQWMovieRatingViewController.m */; };
 		2A1892F61CBE0C560081EB4B /* TQWMovieRatingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1892F51CBE0C560081EB4B /* TQWMovieRatingViewModel.m */; };
 		2A503BC91CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A503BC81CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m */; };
@@ -26,8 +28,8 @@
 		2A861EC41CBF6594007208DD /* M80AttributedLabelURL.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A861EBD1CBF6594007208DD /* M80AttributedLabelURL.m */; };
 		2A861EC51CBF6594007208DD /* M80AttributedLabelAttachment.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A861EBF1CBF6594007208DD /* M80AttributedLabelAttachment.m */; };
 		2A861EC61CBF6594007208DD /* M80AttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A861EC21CBF6594007208DD /* M80AttributedLabel.m */; };
-		2A861EC91CBF690A007208DD /* TQWNewShowPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A861EC81CBF690A007208DD /* TQWNewShowPageViewController.m */; };
 		2AB2EFC21CBCDB8C0009D10D /* TQWSearchPerimeterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB2EFC11CBCDB8C0009D10D /* TQWSearchPerimeterViewController.m */; };
+		2ABBC8AD1CC209B000D72290 /* AffineTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 2ABBC8AC1CC209B000D72290 /* AffineTransform.m */; };
 		2AFE50EF1CBF24DE003F34FD /* TQWGetData.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFE50EE1CBF24DE003F34FD /* TQWGetData.m */; };
 		491D0C3B1CB6AF150013D195 /* NSObject+Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 491D0C3A1CB6AF150013D195 /* NSObject+Location.m */; };
 		493F436D1CAF952500CB4550 /* TQWDouBanMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = 493F436C1CAF952500CB4550 /* TQWDouBanMovie.m */; };
@@ -70,6 +72,10 @@
 		2A00C69C1CBBC65600DA7FB4 /* TQWAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWAnnotation.m; sourceTree = "<group>"; };
 		2A00C69F1CBBC6FD00DA7FB4 /* TQWAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWAnnotationView.h; sourceTree = "<group>"; };
 		2A00C6A01CBBC6FD00DA7FB4 /* TQWAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWAnnotationView.m; sourceTree = "<group>"; };
+		2A0ECBD71CC5D2D400D2ABFB /* TQWShowPagesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWShowPagesViewController.h; sourceTree = "<group>"; };
+		2A0ECBD81CC5D2D400D2ABFB /* TQWShowPagesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWShowPagesViewController.m; sourceTree = "<group>"; };
+		2A0ECBDA1CC6404200D2ABFB /* TQWScaleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWScaleViewController.h; sourceTree = "<group>"; };
+		2A0ECBDB1CC6404200D2ABFB /* TQWScaleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWScaleViewController.m; sourceTree = "<group>"; };
 		2A1892F11CBDE7EB0081EB4B /* TQWMovieRatingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWMovieRatingViewController.h; sourceTree = "<group>"; };
 		2A1892F21CBDE7EB0081EB4B /* TQWMovieRatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWMovieRatingViewController.m; sourceTree = "<group>"; };
 		2A1892F41CBE0C560081EB4B /* TQWMovieRatingViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWMovieRatingViewModel.h; sourceTree = "<group>"; };
@@ -100,10 +106,10 @@
 		2A861EC01CBF6594007208DD /* M80AttributedLabelDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80AttributedLabelDefines.h; sourceTree = "<group>"; };
 		2A861EC11CBF6594007208DD /* M80AttributedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M80AttributedLabel.h; sourceTree = "<group>"; };
 		2A861EC21CBF6594007208DD /* M80AttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = M80AttributedLabel.m; sourceTree = "<group>"; };
-		2A861EC71CBF690A007208DD /* TQWNewShowPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWNewShowPageViewController.h; sourceTree = "<group>"; };
-		2A861EC81CBF690A007208DD /* TQWNewShowPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWNewShowPageViewController.m; sourceTree = "<group>"; };
 		2AB2EFC01CBCDB8C0009D10D /* TQWSearchPerimeterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWSearchPerimeterViewController.h; sourceTree = "<group>"; };
 		2AB2EFC11CBCDB8C0009D10D /* TQWSearchPerimeterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWSearchPerimeterViewController.m; sourceTree = "<group>"; };
+		2ABBC8AB1CC209B000D72290 /* AffineTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AffineTransform.h; sourceTree = "<group>"; };
+		2ABBC8AC1CC209B000D72290 /* AffineTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AffineTransform.m; sourceTree = "<group>"; };
 		2AFE50ED1CBF24DE003F34FD /* TQWGetData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWGetData.h; sourceTree = "<group>"; };
 		2AFE50EE1CBF24DE003F34FD /* TQWGetData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWGetData.m; sourceTree = "<group>"; };
 		491D0C391CB6AF150013D195 /* NSObject+Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Location.h"; sourceTree = "<group>"; };
@@ -231,6 +237,8 @@
 				2A697CDA1CB89E9A0022BFEE /* TQWCityAndCoodinate.m */,
 				2A697CDC1CB89F7F0022BFEE /* TQWLocationManager.h */,
 				2A697CDD1CB89F7F0022BFEE /* TQWLocationManager.m */,
+				2A0ECBDA1CC6404200D2ABFB /* TQWScaleViewController.h */,
+				2A0ECBDB1CC6404200D2ABFB /* TQWScaleViewController.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -266,8 +274,8 @@
 				49BF9F7A1CB170550066997F /* TQWMainViewController.m */,
 				2A1892F11CBDE7EB0081EB4B /* TQWMovieRatingViewController.h */,
 				2A1892F21CBDE7EB0081EB4B /* TQWMovieRatingViewController.m */,
-				2A861EC71CBF690A007208DD /* TQWNewShowPageViewController.h */,
-				2A861EC81CBF690A007208DD /* TQWNewShowPageViewController.m */,
+				2A0ECBD71CC5D2D400D2ABFB /* TQWShowPagesViewController.h */,
+				2A0ECBD81CC5D2D400D2ABFB /* TQWShowPagesViewController.m */,
 			);
 			name = "主页";
 			sourceTree = "<group>";
@@ -479,6 +487,8 @@
 				2A697CE01CB8A8810022BFEE /* NSObject+LocationV2.m */,
 				2A00C68F1CBBB96500DA7FB4 /* NSObject+MapView.h */,
 				2A00C6901CBBB96500DA7FB4 /* NSObject+MapView.m */,
+				2ABBC8AB1CC209B000D72290 /* AffineTransform.h */,
+				2ABBC8AC1CC209B000D72290 /* AffineTransform.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -646,11 +656,13 @@
 				2A697CDB1CB89E9A0022BFEE /* TQWCityAndCoodinate.m in Sources */,
 				49E8CE8D1CAEACE0001610E1 /* UIScrollView+Refersh.m in Sources */,
 				493F436D1CAF952500CB4550 /* TQWDouBanMovie.m in Sources */,
+				2ABBC8AD1CC209B000D72290 /* AffineTransform.m in Sources */,
 				2A00C69D1CBBC65600DA7FB4 /* TQWAnnotation.m in Sources */,
 				2A00C6A11CBBC6FD00DA7FB4 /* TQWAnnotationView.m in Sources */,
 				2A542E061CB676DB004D1597 /* AppDelegate+Location.m in Sources */,
 				2A542DFE1CB62F23004D1597 /* TQWCityListViewController.m in Sources */,
 				49BF9FB51CB280190066997F /* ViewController.m in Sources */,
+				2A0ECBDC1CC6404200D2ABFB /* TQWScaleViewController.m in Sources */,
 				49E8CE871CAE8AE0001610E1 /* NSObject+NetWoking.m in Sources */,
 				491D0C3B1CB6AF150013D195 /* NSObject+Location.m in Sources */,
 				496789911CAF8808002CACE8 /* NSString+regular.m in Sources */,
@@ -659,6 +671,7 @@
 				2A861EC61CBF6594007208DD /* M80AttributedLabel.m in Sources */,
 				49BF9F601CAFE8B90066997F /* TQWDouBanMovieUSBox.m in Sources */,
 				2A697CE11CB8A8810022BFEE /* NSObject+LocationV2.m in Sources */,
+				2A0ECBD91CC5D2D400D2ABFB /* TQWShowPagesViewController.m in Sources */,
 				2A503BCF1CB7D13B0054AAC7 /* TQWPerimeterZoneShopViewModel.m in Sources */,
 				2A1892F61CBE0C560081EB4B /* TQWMovieRatingViewModel.m in Sources */,
 				49BF9F7B1CB170550066997F /* TQWMainViewController.m in Sources */,
@@ -666,7 +679,6 @@
 				2A697CDE1CB89F7F0022BFEE /* TQWLocationManager.m in Sources */,
 				49BF9F6F1CB023D10066997F /* TQWDPRating.m in Sources */,
 				2AFE50EF1CBF24DE003F34FD /* TQWGetData.m in Sources */,
-				2A861EC91CBF690A007208DD /* TQWNewShowPageViewController.m in Sources */,
 				2A861EC51CBF6594007208DD /* M80AttributedLabelAttachment.m in Sources */,
 				2A503BC91CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m in Sources */,
 				2A861EC41CBF6594007208DD /* M80AttributedLabelURL.m in Sources */,

@@ -21,10 +21,7 @@
 
 @implementation AppDelegate
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TQWGetData getUSBoxStart:0 count:10 completeHandler:^(TQWDouBanMovieUSBox *ComingSoonMovies, NSError *error) {
-        NSLog(@"%@",ComingSoonMovies);
-    }];
-    
+
     [self setupCurrentCity];
     [self setupGolbalNavigation];
     //设置默认城市

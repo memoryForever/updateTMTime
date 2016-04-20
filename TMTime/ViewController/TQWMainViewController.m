@@ -12,9 +12,10 @@
 #import "constant.h"
 #import "TQWInbriefTableViewCell.h"
 #import "TQWMovieRatingViewController.h"
-#import "TQWNewShowPageViewController.h"
+#import "TQWShowPagesViewController.h"
 
-#define kHideTabbar self.tabBarController.tabBar.hidden = YES
+
+#define kHideTabbar self.tabBarController.tabBar.hidden   = YES
 #define kAppearTabbar self.tabBarController.tabBar.hidden = NO
 #define kMovieRatingSegue @"MovieRating"
 #define kMovieRatingType250 @"MovieRatingType250"
@@ -142,8 +143,8 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     NSInteger row = indexPath.row;
-    TQWNewShowPageViewController *newShowPage = [[TQWNewShowPageViewController alloc]init];
-    [newShowPage showContentString:[self.mainViewModel movieNewContent:row] Images:[self.mainViewModel movieNewImages:row]];
+    TQWShowPagesViewController *newShowPage = [[TQWShowPagesViewController alloc]init];
+    [newShowPage showDetailContent:[self.mainViewModel movieNewContent:row] imageURLStrs:[self.mainViewModel movieNewImages:row]];
     [self.navigationController pushViewController:newShowPage animated:YES];
 }
 
