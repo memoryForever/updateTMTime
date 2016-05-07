@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
@@ -244,22 +243,22 @@
             </objects>
             <point key="canvasLocation" x="838" y="-204"/>
         </scene>
-        <!--View Controller-->
+        <!--Main Main View Controller-->
         <scene sceneID="5Uj-RQ-LW2">
             <objects>
-                <viewController id="IdL-VV-LvA" sceneMemberID="viewController">
+                <viewController automaticallyAdjustsScrollViewInsets="NO" id="IdL-VV-LvA" customClass="TQWMainMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bUi-Ze-8ux"/>
                         <viewControllerLayoutGuide type="bottom" id="ZGv-d8-oBc"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lnT-vX-PwM">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QO-10-2eh">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6QO-10-2eh">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hzr-fb-goC">
+                                    <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hzr-fb-goC">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1136"/>
                                         <animations/>
                                         <connections>
@@ -287,6 +286,7 @@
                             <constraint firstAttribute="trailing" secondItem="6QO-10-2eh" secondAttribute="trailing" id="wsO-t2-PeC"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="B1N-WR-QSI"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UcE-cz-cCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,8 +340,8 @@
                                                         <constraint firstAttribute="height" constant="22" id="uTv-tP-xQN"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="导演" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFq-mp-obO">
-                                                    <rect key="frame" x="152" y="154" width="41" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="导演" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QFq-mp-obO">
+                                                    <rect key="frame" x="152" y="157" width="30" height="18"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -354,8 +354,8 @@
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="时间" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ay-JF-OcZ">
-                                                    <rect key="frame" x="282" y="158" width="93" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="时间" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ay-JF-OcZ">
+                                                    <rect key="frame" x="345" y="157" width="30" height="18"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -602,14 +602,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1136"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-Es-KY6">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HPI-Es-KY6">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="160"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="HPI-Es-KY6" secondAttribute="height" multiplier="2:1" id="BnL-9u-CJg"/>
+                                    <constraint firstAttribute="height" constant="100" id="xp0-tf-OZq"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qNu-Lb-0yH">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qNu-Lb-0yH">
                                 <rect key="frame" x="0.0" y="160" width="320" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5h-g0-wXA">
@@ -639,7 +639,7 @@
                                     <constraint firstItem="pK2-Aa-78J" firstAttribute="top" secondItem="qNu-Lb-0yH" secondAttribute="top" constant="8" id="cDS-Ab-NYx"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XHR-Qn-r1D">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XHR-Qn-r1D">
                                 <rect key="frame" x="0.0" y="604" width="320" height="80"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ns5-g4-gRs" userLabel="4">
@@ -821,7 +821,7 @@
                                     <constraint firstItem="a8A-3f-bgA" firstAttribute="width" secondItem="lMn-me-We8" secondAttribute="width" id="zzs-ML-1Ry"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="lGy-tY-DF8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="94" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="lGy-tY-DF8">
                                 <rect key="frame" x="0.0" y="684" width="320" height="516"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1061,7 +1061,7 @@
                                     <outlet property="delegate" destination="xbF-5E-Mcc" id="Qk8-Iq-aXn"/>
                                 </connections>
                             </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CIg-wt-1F9">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="CIg-wt-1F9">
                                 <rect key="frame" x="0.0" y="204" width="320" height="400"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.77848162125184917" green="1" blue="0.64675273599682037" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
@@ -1186,6 +1186,7 @@
                         <outlet property="MovieCollectionView" destination="CIg-wt-1F9" id="007-6k-37V"/>
                         <outlet property="cityChangeButton" destination="pK2-Aa-78J" id="qon-gU-cGp"/>
                         <outlet property="tableView" destination="lGy-tY-DF8" id="fcF-Yr-Nvr"/>
+                        <outlet property="topImageView" destination="HPI-Es-KY6" id="eib-b0-yjp"/>
                         <segue destination="kDa-2w-qg1" kind="push" identifier="MovieRating" id="mJX-xU-VeT"/>
                     </connections>
                 </viewController>

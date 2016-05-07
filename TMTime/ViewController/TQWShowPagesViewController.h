@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface TQWShowPagesViewController : UIViewController
+@property (nonatomic,strong) NSMutableArray<UIImage*> *imageContainer;
 - (void)showDetailContent:(NSString*)content imageURLStrs:(NSArray<NSString*>*)imageURLStrs;
 @end

@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface UIImage (getNetworkImage)
+
 +(void)getNetworkImageURL:(NSString*)URL;
 +(void)getNetworkImageURL:(NSString *)URL completeHandler:(void(^)(UIImage *image ,NSError *error))completeHandler;
 +(void)getNetworkImageURL:(NSString *)URL Queue:(dispatch_queue_t)loadQueue completeHandler:(void(^)(UIImage *image ,NSError *error))completeHandler;
++(void)getNetworkImageURLs:(NSArray<NSString*>*)URLStrs saveImageArray:(NSMutableArray<UIImage*>*)saveArray completeHandler:(void(^)(NSError *error))completionHandler;
 @end

@@ -9,6 +9,9 @@
 
 #import "TQWShowPagesViewController.h"
 #import "TQWScaleViewController.h"
+#import "TQWRefershAnimationVC.h"
+#import "UIImage+getNetworkImage.h"
+#import <YYTextAttribute.h>
 
 #define kSeparator @"separatorCharater"
 
@@ -31,33 +34,36 @@ typedef NS_ENUM(NSInteger ,StringType) {
 @implementation TQWShowPagesViewController
 #pragma mark - 懒加载
 
-- (YYLabel *)yyLable{
-    if (!_yyLable) {
-        self.scrolleView = [[UIScrollView alloc]initWithFrame:CGRectZero];
-        kWeakSelf(mySelf);
-        [self.view addSubview:self.scrolleView];
-        //self.scrolleView.delegate = self;
-        [self.scrolleView addFooterRefershAnimation:^{
-            [mySelf refreshTextLabel];
-        
-        }];
-        [self.scrolleView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo(mySelf.view);
-        }];
-        self.scrolleView.bounces = YES ;
-        self.automaticallyAdjustsScrollViewInsets = NO ;
-        _yyLable = [YYLabel new];
-        _yyLable.numberOfLines = 0 ;
-        _yyLable.textVerticalAlignment = YYTextVerticalAlignmentTop;
-        [self.scrolleView addSubview:_yyLable];
-        [_yyLable mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.mas_equalTo(mySelf.view.width - 20);
-            make.edges.mas_equalTo(UIEdgeInsetsMake(64, 10, 10, 10));
-            make.height.mas_equalTo(800);
-        }];
+- (NSMutableArray<UIImage *> *)imageContainer{
+    if (!_imageContainer) {
+        _imageContainer = @[].mutableCopy;
     }
-    return _yyLable;
+    return _imageContainer;
 }
+
+//- (YYLabel *)yyLable{
+//    if (!_yyLable) {
+//        self.scrolleView = [[UIScrollView alloc]initWithFrame:CGRectZero];
+//        kWeakSelf(mySelf);
+//        [self.view addSubview:self.scrolleView];
+//        [self.scrolleView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.edges.equalTo(mySelf.view);
+//        }];
+//        self.scrolleView.bounces = YES ;
+//        self.automaticallyAdjustsScrollViewInsets = NO ;
+//        _yyLable = [YYLabel new];
+//        _yyLable.numberOfLines = 0 ;
+//        _yyLable.textVerticalAlignment = YYTextVerticalAlignmentTop;
+//        self.scrolleView.contentSize = CGSizeMake(300, 1000);
+//        [self.scrolleView addSubview:_yyLable];
+//        [_yyLable mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.width.mas_equalTo(mySelf.view.width - 20);
+//            make.top.mas_equalTo(64);
+//            make.centerX.equalTo(mySelf.view);
+//        }];
+//    }
+//    return _yyLable;
+//}
 - (UITextView *)textView{
     if (!_textView) {
         _textView = [UITextView new];
@@ -86,20 +92,27 @@ typedef NS_ENUM(NSInteger ,StringType) {
     return _imageURLs;
 }
 #pragma mark - 处理方法
-- (void) getAttributedString:(NSString*)string StringType:(StringType)type{
+- (void) getAttributedString:(NSString*)string StringType:(StringType)type index:(NSUInteger)index{
     NSMutableAttributedString *attachment = nil;
     UIFont *font = [UIFont systemFontOfSize:16];
     if (type == StringTypeImageUrl) {
         UIImageView *imageView = [[UIImageView alloc]init];
-        [imageView loadImageWithURL:string];
+        if(self.imageContainer.count != 0){
+          imageView.image = self.imageContainer[index];  
+        }
+        
+        if (!imageView.image) {
+            [imageView loadImageWithURL:string];
+        }
         [imageView sizeToFit];
+        self.text.font = font;
         [self addGesture:imageView];
         attachment = [NSMutableAttributedString
                                                  attachmentStringWithContent:imageView
                                                  contentMode:UIViewContentModeCenter
                                                  attachmentSize:imageView.size
                                                  alignToFont:font
-                                                 alignment:YYTextVerticalAlignmentCenter];
+                                                 alignment:YYTextVerticalAlignmentTop];
        
     }
     if (type == StringTypeText) {
@@ -108,16 +121,14 @@ typedef NS_ENUM(NSInteger ,StringType) {
     }
     [attachment appendAttributedString:[[NSAttributedString alloc] initWithString:@"\n" attributes:nil]];
     !attachment?:[self.text appendAttributedString:attachment];
-    self.text.font = font;
-    
     return ;
 }
 - (void)addShowContent{
     kWeakSelf(mySelf);
     for (NSInteger i  = 0 ; i < self.contents.count; i ++) {
-        [mySelf getAttributedString:mySelf.contents[i] StringType:StringTypeText];
+        [mySelf getAttributedString:mySelf.contents[i] StringType:StringTypeText index:0];
         if (i < mySelf.imageURLs.count) {
-            [mySelf getAttributedString:mySelf.imageURLs[i] StringType:StringTypeImageUrl];
+            [mySelf getAttributedString:mySelf.imageURLs[i] StringType:StringTypeImageUrl index:i];
         }
     }
     [mySelf refreshTextLabel];
@@ -141,35 +152,40 @@ typedef NS_ENUM(NSInteger ,StringType) {
 - (void)refreshTextLabel{
     self.yyLable.attributedText =  [[NSAttributedString alloc]init];
     self.yyLable.attributedText = self.text;
-    CGRect frame = [self.text boundingRectWithSize:CGSizeMake(self.view.frame.size.width, 0) options:NSStringDrawingTruncatesLastVisibleLine | NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading context:nil];
-    self.hight = frame.size.height;
-      kWeakSelf(mySelf);
-    [self.yyLable mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(mySelf.hight);
-    }];
-    [self.yyLable needsUpdateConstraints];
-    [self.yyLable updateConstraintsIfNeeded];
-    [self.yyLable setNeedsLayout];
-    [self.yyLable layoutIfNeeded];
-    [self.scrolleView endedFooterRefersh];
+    [self.yyLable sizeToFit];
+    NSLog(@"yyLabel:%lf",self.yyLable.height);
+    NSLog(@"scrollView:%lf",self.scrolleView.height);
 }
-- (void)viewWillLayoutSubviews{
-    [super viewDidLayoutSubviews];
-}
+#pragma mark - load image
 
 #pragma mark - 生命周期
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   
     self.view.backgroundColor = [UIColor whiteColor];
-
+}
+- (void)viewWillAppear:(BOOL)animated{
+   
+    
+}
+- (void)viewWillLayoutSubviews{
+    [self addShowContent];
+}
+- (void)viewDidLayoutSubviews{
+      [self.yyLable sizeToFit];
+      kWeakSelf(mySelf);
+    [self.yyLable mas_updateConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_equalTo(mySelf.yyLable.height);
+    }];
+    NSLog(@"yyLabel:%lf",self.yyLable.height);
+    NSLog(@"scrollView:%lf",self.scrolleView.height);
 }
 #pragma mark - 初始化方法
 - (void)showDetailContent:(NSString *)content imageURLStrs:(NSArray <NSString *>*)imageURLStrs{
     NSString* newContent = [content stringByReplacingRegex:@"<img src=.*>" options:NSRegularExpressionCaseInsensitive withString:kSeparator];
     [self.contents   addObjectsFromArray:[newContent componentsSeparatedByString:kSeparator]];
     [self.imageURLs  addObjectsFromArray:imageURLStrs];
-    [self addShowContent];
 }
 
 - (void)didReceiveMemoryWarning {

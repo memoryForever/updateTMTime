@@ -153,8 +153,7 @@
         _currentEndIndex = 0 ;
     }
     if (type == RefershTypeDown ) {
-        _currentEndIndex = self.movieNewContainer.count ;
-        NSLog(@"_currentEndIndex : %ld",_currentEndIndex);
+        _currentEndIndex = (NSUInteger)self.movieNewContainer.count ;
     }
     [TQWGetData getMovieNewsListStart:_currentEndIndex count:perpageNewNumber completeHandler:^(TQWMovieNewsList *movieNewsList, NSError *error) {
         [_movieNewContainer addObjectsFromArray:movieNewsList.dataList];

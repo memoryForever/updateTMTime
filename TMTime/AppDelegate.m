@@ -14,6 +14,8 @@
 #import "TQWGetData.h"
 #import "TQWDouBanMovieUSBox.h"
 
+//test
+
 
 @interface AppDelegate ()
 
@@ -34,6 +36,22 @@
     [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"menu_top_bg7"] forBarMetrics:UIBarMetricsDefault];
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
 }
+/** 截取请求 test*/
+//- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation{
+//    NSLog(@"%@",url.absoluteString );
+//    //获取导航控制器
+//    UINavigationController *navi = (UINavigationController*)self.window.rootViewController;
+//    //主界面控制器
+//    UIViewController *mainVc = (UIViewController*)navi.topViewController;
+//    NSString *urlString = [url.absoluteString componentsSeparatedByString:@"?"].lastObject;
+//    if ([urlString isEqualToString:@"detailPage"]) {
+//        
+//    }
+//    return YES;
+//}
+
+
+
 
 - (void)defaultCityName{
     if (!kCurrentCityNameValue) {

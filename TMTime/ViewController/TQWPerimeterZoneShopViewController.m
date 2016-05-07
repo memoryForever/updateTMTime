@@ -147,7 +147,8 @@ NSForegroundColorAttributeName:kRGBAColor(83, 145, 0, 1),
     }];
     //配置 mapView
     self.mapView.showsUserLocation = YES ;
-    self.mapView.showsScale = YES ;
+    //itouch 上调试失败,不能添加这句
+   // self.mapView.showsScale = YES ;
 }
 
 - (void)dealloc{

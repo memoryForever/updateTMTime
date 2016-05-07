@@ -73,6 +73,7 @@
     cell.summarizedLabel.text = [self.movieRatingViewModel movieSummarizedWith:row];
     return cell ;
 }
+
 #pragma  mark - 生命周期方法
 - (void)viewDidLoad {
     [super viewDidLoad];

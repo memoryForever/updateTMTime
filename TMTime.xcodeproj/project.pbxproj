@@ -15,6 +15,9 @@
 		2A0ECBDC1CC6404200D2ABFB /* TQWScaleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A0ECBDB1CC6404200D2ABFB /* TQWScaleViewController.m */; };
 		2A1892F31CBDE7EB0081EB4B /* TQWMovieRatingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1892F21CBDE7EB0081EB4B /* TQWMovieRatingViewController.m */; };
 		2A1892F61CBE0C560081EB4B /* TQWMovieRatingViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A1892F51CBE0C560081EB4B /* TQWMovieRatingViewModel.m */; };
+		2A4B03FA1CC9F26B00110FBA /* TQWRollAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B03F91CC9F26B00110FBA /* TQWRollAnimation.m */; };
+		2A4B03FD1CC9F7C400110FBA /* TQWMainMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B03FC1CC9F7C400110FBA /* TQWMainMainViewController.m */; };
+		2A4B04291CCA26FB00110FBA /* TQWRefershAnimationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4B04281CCA26FB00110FBA /* TQWRefershAnimationVC.m */; };
 		2A503BC91CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A503BC81CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m */; };
 		2A503BCF1CB7D13B0054AAC7 /* TQWPerimeterZoneShopViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A503BCE1CB7D13B0054AAC7 /* TQWPerimeterZoneShopViewModel.m */; };
 		2A542DFE1CB62F23004D1597 /* TQWCityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A542DFD1CB62F23004D1597 /* TQWCityListViewController.m */; };
@@ -80,6 +83,12 @@
 		2A1892F21CBDE7EB0081EB4B /* TQWMovieRatingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWMovieRatingViewController.m; sourceTree = "<group>"; };
 		2A1892F41CBE0C560081EB4B /* TQWMovieRatingViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWMovieRatingViewModel.h; sourceTree = "<group>"; };
 		2A1892F51CBE0C560081EB4B /* TQWMovieRatingViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWMovieRatingViewModel.m; sourceTree = "<group>"; };
+		2A4B03F81CC9F26B00110FBA /* TQWRollAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWRollAnimation.h; sourceTree = "<group>"; };
+		2A4B03F91CC9F26B00110FBA /* TQWRollAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWRollAnimation.m; sourceTree = "<group>"; };
+		2A4B03FB1CC9F7C400110FBA /* TQWMainMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWMainMainViewController.h; sourceTree = "<group>"; };
+		2A4B03FC1CC9F7C400110FBA /* TQWMainMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWMainMainViewController.m; sourceTree = "<group>"; };
+		2A4B04271CCA26FB00110FBA /* TQWRefershAnimationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWRefershAnimationVC.h; sourceTree = "<group>"; };
+		2A4B04281CCA26FB00110FBA /* TQWRefershAnimationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWRefershAnimationVC.m; sourceTree = "<group>"; };
 		2A503BC71CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWPerimeterZoneShopViewController.h; sourceTree = "<group>"; };
 		2A503BC81CB7A1830054AAC7 /* TQWPerimeterZoneShopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQWPerimeterZoneShopViewController.m; sourceTree = "<group>"; };
 		2A503BCD1CB7D13B0054AAC7 /* TQWPerimeterZoneShopViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQWPerimeterZoneShopViewModel.h; sourceTree = "<group>"; };
@@ -233,6 +242,10 @@
 		2A697CD81CB89E2F0022BFEE /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				2A4B04271CCA26FB00110FBA /* TQWRefershAnimationVC.h */,
+				2A4B04281CCA26FB00110FBA /* TQWRefershAnimationVC.m */,
+				2A4B03F81CC9F26B00110FBA /* TQWRollAnimation.h */,
+				2A4B03F91CC9F26B00110FBA /* TQWRollAnimation.m */,
 				2A697CD91CB89E9A0022BFEE /* TQWCityAndCoodinate.h */,
 				2A697CDA1CB89E9A0022BFEE /* TQWCityAndCoodinate.m */,
 				2A697CDC1CB89F7F0022BFEE /* TQWLocationManager.h */,
@@ -276,6 +289,8 @@
 				2A1892F21CBDE7EB0081EB4B /* TQWMovieRatingViewController.m */,
 				2A0ECBD71CC5D2D400D2ABFB /* TQWShowPagesViewController.h */,
 				2A0ECBD81CC5D2D400D2ABFB /* TQWShowPagesViewController.m */,
+				2A4B03FB1CC9F7C400110FBA /* TQWMainMainViewController.h */,
+				2A4B03FC1CC9F7C400110FBA /* TQWMainMainViewController.m */,
 			);
 			name = "主页";
 			sourceTree = "<group>";
@@ -561,6 +576,7 @@
 				TargetAttributes = {
 					49E8CE521CAD4B4A001610E1 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 64C8A3836D;
 					};
 				};
 			};
@@ -655,13 +671,16 @@
 				49BF9F781CB16E100066997F /* TQWMovieCollectionViewCell.m in Sources */,
 				2A697CDB1CB89E9A0022BFEE /* TQWCityAndCoodinate.m in Sources */,
 				49E8CE8D1CAEACE0001610E1 /* UIScrollView+Refersh.m in Sources */,
+				2A4B03FA1CC9F26B00110FBA /* TQWRollAnimation.m in Sources */,
 				493F436D1CAF952500CB4550 /* TQWDouBanMovie.m in Sources */,
 				2ABBC8AD1CC209B000D72290 /* AffineTransform.m in Sources */,
 				2A00C69D1CBBC65600DA7FB4 /* TQWAnnotation.m in Sources */,
 				2A00C6A11CBBC6FD00DA7FB4 /* TQWAnnotationView.m in Sources */,
 				2A542E061CB676DB004D1597 /* AppDelegate+Location.m in Sources */,
 				2A542DFE1CB62F23004D1597 /* TQWCityListViewController.m in Sources */,
+				2A4B04291CCA26FB00110FBA /* TQWRefershAnimationVC.m in Sources */,
 				49BF9FB51CB280190066997F /* ViewController.m in Sources */,
+				2A4B03FD1CC9F7C400110FBA /* TQWMainMainViewController.m in Sources */,
 				2A0ECBDC1CC6404200D2ABFB /* TQWScaleViewController.m in Sources */,
 				49E8CE871CAE8AE0001610E1 /* NSObject+NetWoking.m in Sources */,
 				491D0C3B1CB6AF150013D195 /* NSObject+Location.m in Sources */,
@@ -790,11 +809,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = TMTime/default/PrefixHeader.pch;
 				INFOPLIST_FILE = TMTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.TMTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -804,11 +826,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREFIX_HEADER = TMTime/default/PrefixHeader.pch;
 				INFOPLIST_FILE = TMTime/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.test.TMTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

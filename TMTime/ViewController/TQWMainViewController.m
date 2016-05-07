@@ -13,6 +13,9 @@
 #import "TQWInbriefTableViewCell.h"
 #import "TQWMovieRatingViewController.h"
 #import "TQWShowPagesViewController.h"
+#import "TQWRollAnimation.h"
+#import "TQWRefershAnimationVC.h"
+#import "UIImage+getNetworkImage.h"
 
 
 #define kHideTabbar self.tabBarController.tabBar.hidden   = YES
@@ -41,6 +44,7 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 @interface TQWMainViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,UITableViewDataSource,UITableViewDelegate>
 
 /** scrollview 属性 **/
+@property (weak, nonatomic) IBOutlet UIImageView *topImageView;
 
 
 /** 正在热映电影集合视图属性 **/
@@ -69,7 +73,7 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
 - (IBAction)intoTogeter:(id)sender;
 /** 进入游戏 **/
 - (IBAction)intoGame:(id)sender;
-
+@property (nonatomic,strong) NSMutableArray<UIImage*> *imageArray;
 @end
 
 @implementation TQWMainViewController
@@ -145,7 +149,31 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
     NSInteger row = indexPath.row;
     TQWShowPagesViewController *newShowPage = [[TQWShowPagesViewController alloc]init];
     [newShowPage showDetailContent:[self.mainViewModel movieNewContent:row] imageURLStrs:[self.mainViewModel movieNewImages:row]];
-    [self.navigationController pushViewController:newShowPage animated:YES];
+    
+    [self loadImage:[self.mainViewModel movieNewImages:row] controller:newShowPage];
+   
+  //  [self.navigationController pushViewController:newShowPage animated:YES];
+}
+
+
+- (void)loadImage:(NSArray<NSString*>*)urlImages controller:(TQWShowPagesViewController*)count{
+    
+    self.imageArray = [NSMutableArray array];
+    kWeakSelf(mySelf);
+    if (urlImages.count) {
+        [TQWRefershAnimationVC startAnimationAtController:self];
+        [UIImage getNetworkImageURLs:urlImages saveImageArray:_imageArray completeHandler:^(NSError *error) {
+            if (error) {
+                NSLog(@"%@",error);
+                return ;
+            }
+            [TQWRefershAnimationVC endAnimation];
+            count.imageContainer  = mySelf.imageArray;
+            [mySelf.navigationController pushViewController:count animated:YES];
+        }];
+    }else{
+       [mySelf.navigationController pushViewController:count animated:YES]; 
+    }
 }
 
 #pragma mark - touch 方法
@@ -171,11 +199,26 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
         }
     }
 }
+#pragma mark - 配置顶部imageView
+- (void)setupTopImageView{
+    self.automaticallyAdjustsScrollViewInsets = NO ;
+    [self.view layoutIfNeeded];
+    [self.view setNeedsLayout];
+    NSArray *imageArray = @[[UIImage imageNamed:@"1.jpg"],
+                            [UIImage imageNamed:@"2.jpg"],
+                            [UIImage imageNamed:@"3.jpg"],
+                            [UIImage imageNamed:@"4.jpg"],
+                            [UIImage imageNamed:@"5.jpg"]];
+    TQWRollAnimation *rollVC = [TQWRollAnimation addScrollAnimationAtViwe:_topImageView
+                                                               imageArray:imageArray];
+    [self addChildViewController:rollVC];
+}
 
 #pragma mark - 生命周期方法
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setupTopImageView];
     kWeakSelf(mySelf);
     [self.mainViewMain getMovieInTheatersCompleteHandler:^(NSError *error) {
         if (error) {
@@ -209,6 +252,9 @@ typedef NS_ENUM(NSUInteger ,movieNewType) {
     [self.cityChangeButton setTitle:kCurrentCityNameValue forState:UIControlStateNormal];
     //监听城市变化
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeCityButtonTitle) name:kCurrentCityChangeNotification object:nil];
+}
+- (void)viewDidLayoutSubviews{
+    
 }
 
 - (void)didReceiveMemoryWarning {
